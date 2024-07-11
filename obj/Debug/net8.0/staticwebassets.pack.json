@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\FORMULARIOCENSI.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\wwwroot\\css\\Estilos.css",
+      "PackagePath": "staticwebassets\\css\\Estilos.css"
+    },
+    {
       "Id": "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

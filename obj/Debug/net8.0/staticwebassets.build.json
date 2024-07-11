@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vE0C/ItwHfple6Y10NjKHKi/Qze2Jj9E0GbM0Jw/Vrc=",
+  "Hash": "GrPFa+BU7PpEmW1ijkM7UVMLb7D4czJvJzQH3bpzKo4=",
   "Source": "FORMULARIOCENSI",
   "BasePath": "_content/FORMULARIOCENSI",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FORMULARIOCENSI.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\wwwroot\\css\\Estilos.css",
+      "SourceId": "FORMULARIOCENSI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\wwwroot\\",
+      "BasePath": "_content/FORMULARIOCENSI",
+      "RelativePath": "css/Estilos.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Estilos.css"
     },
     {
       "Identity": "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\wwwroot\\css\\site.css",
