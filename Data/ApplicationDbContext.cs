@@ -9,4 +9,6 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     {
     }
+
+    public DbSet<FORMULARIOCENSI.Models.Formulario> DataFormulario { get; set; }
 }
