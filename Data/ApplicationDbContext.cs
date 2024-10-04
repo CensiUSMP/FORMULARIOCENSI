@@ -11,4 +11,5 @@ public class ApplicationDbContext : IdentityDbContext
     }
 
     public DbSet<FORMULARIOCENSI.Models.Formulario> DataFormulario { get; set; }
+    
 }

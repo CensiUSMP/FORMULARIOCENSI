@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj": {}
+    "C:\\Users\\CENSI USMP\\Desktop\\DOCUMENTOS USMP\\FormularioCensi\\FORMULARIOCENSI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj": {
+    "C:\\Users\\CENSI USMP\\Desktop\\DOCUMENTOS USMP\\FormularioCensi\\FORMULARIOCENSI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
+        "projectUniqueName": "C:\\Users\\CENSI USMP\\Desktop\\DOCUMENTOS USMP\\FormularioCensi\\FORMULARIOCENSI.csproj",
         "projectName": "FORMULARIOCENSI",
-        "projectPath": "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
+        "projectPath": "C:\\Users\\CENSI USMP\\Desktop\\DOCUMENTOS USMP\\FormularioCensi\\FORMULARIOCENSI.csproj",
         "packagesPath": "C:\\Users\\CENSI USMP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CENSI USMP\\Documents\\FORMULARIOCENSI\\obj\\",
+        "outputPath": "C:\\Users\\CENSI USMP\\Desktop\\DOCUMENTOS USMP\\FormularioCensi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\CENSI USMP\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -72,6 +72,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[8.0.5, )"
             }
           },
           "imports": [

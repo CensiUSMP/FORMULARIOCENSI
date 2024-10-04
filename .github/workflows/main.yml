@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+      - master  # Cambia esto a tu rama principal si es necesario
+
+name: Deploy to Render
+
+env:
+  RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # Almacena tu clave API de Render en los secretos de GitHub
+  RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}  # Almacena el ID de tu servicio Render en los secretos de GitHub
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Registry
+        run: echo "${{ secrets.RENDER_DOCKER_PASSWORD }}" | docker login -u "${{ secrets.RENDER_DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build and Push Docker image
+        run: |
+          docker build -t your-image-name .
+          docker tag your-image-name registry.render.com/${{ secrets.RENDER_SERVICE_ID }}/your-image-name
+          docker push registry.render.com/${{ secrets.RENDER_SERVICE_ID }}/your-image-name
+
+      - name: Deploy to Render
+        run: |
+          curl -X POST -H "Authorization: Bearer $RENDER_API_KEY" \
+          -H "Content-Type: application/json" \
+          -d '{"serviceId":"'"$RENDER_SERVICE_ID"'", "branch":"master"}' \
+          https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys
