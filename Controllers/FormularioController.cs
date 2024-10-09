@@ -10,17 +10,23 @@ using System.Net.Http.Headers;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FORMULARIOCENSI.Controllers
 {
+    [Authorize]
     public class FormularioController : Controller
 
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public FormularioController(ApplicationDbContext context)
+        public FormularioController(ApplicationDbContext context, UserManager<IdentityUser>userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public IActionResult Index2()
         {

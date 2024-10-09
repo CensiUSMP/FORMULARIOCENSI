@@ -1,0 +1,125 @@
+@model IEnumerable<FORMULARIOCENSI.Models.Formulario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sinopsis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autores)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HistoriaClinica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaIngreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ordenes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Objetivos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desempeño)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preguntas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guión)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Confederado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotasFacilitador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PuntosDebriefing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aprendizaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referencias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Escenarios)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sinopsis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autores)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HistoriaClinica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotaIngreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ordenes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Objetivos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desempeño)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preguntas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Equipos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Guión)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Confederado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotasFacilitador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PuntosDebriefing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aprendizaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referencias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Escenarios)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
