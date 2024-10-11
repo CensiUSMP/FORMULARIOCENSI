@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FORMULARIOCENSI.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240724154630_GeneralMigration")]
-    partial class GeneralMigration
+    [Migration("20241011220140_FormularioMigration")]
+    partial class FormularioMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,6 +113,11 @@ namespace FORMULARIOCENSI.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("sinopsis");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("titulo");
 
                     b.HasKey("Id");
 

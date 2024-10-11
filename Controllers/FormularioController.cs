@@ -56,7 +56,7 @@ namespace FORMULARIOCENSI.Controllers
             return View(objFormulario);
         }
         [HttpPost]
-        public IActionResult Edit(int id,[Bind("Id,Sinopsis,Autores,HistoriaClinica,NotaIngreso,Ordenes,Objetivos,Desempeño,Preguntas,Equipos,Guión,Confederado,NotasFacilitador,PuntosDebriefing,Aprendizaje,Referencias,Escenarios")] Formulario objFormulario)
+        public IActionResult Edit(int id,[Bind("Id,Titulo,Sinopsis,Autores,HistoriaClinica,NotaIngreso,Ordenes,Objetivos,Desempeño,Preguntas,Equipos,Guión,Confederado,NotasFacilitador,PuntosDebriefing,Aprendizaje,Referencias,Escenarios")] Formulario objFormulario)
         {
              _context.Update(objFormulario);
              _context.SaveChanges();

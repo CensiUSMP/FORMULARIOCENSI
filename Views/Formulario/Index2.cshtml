@@ -16,7 +16,7 @@
                 <tr>
                     <th></th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Sinopsis)
+                        @Html.DisplayNameFor(model => model.Titulo)
                     </th>
 
                 </tr>
@@ -30,7 +30,7 @@
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
                         </td>
                         <td style="width: 1000px;">
-                            @Html.DisplayFor(modelItem => item.Sinopsis)
+                            @Html.DisplayFor(modelItem => item.Titulo)
                         </td>
                     </tr>
                 }

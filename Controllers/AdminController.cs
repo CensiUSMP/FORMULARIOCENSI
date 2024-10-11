@@ -59,7 +59,7 @@ namespace FORMULARIOCENSI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Sinopsis,Autores,HistoriaClinica,NotaIngreso,Ordenes,Objetivos,Desempeño,Preguntas,Equipos,Guión,Confederado,NotasFacilitador,PuntosDebriefing,Aprendizaje,Referencias,Escenarios")] Formulario formulario)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Sinopsis,Autores,HistoriaClinica,NotaIngreso,Ordenes,Objetivos,Desempeño,Preguntas,Equipos,Guión,Confederado,NotasFacilitador,PuntosDebriefing,Aprendizaje,Referencias,Escenarios")] Formulario formulario)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace FORMULARIOCENSI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Sinopsis,Autores,HistoriaClinica,NotaIngreso,Ordenes,Objetivos,Desempeño,Preguntas,Equipos,Guión,Confederado,NotasFacilitador,PuntosDebriefing,Aprendizaje,Referencias,Escenarios")] Formulario formulario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Sinopsis,Autores,HistoriaClinica,NotaIngreso,Ordenes,Objetivos,Desempeño,Preguntas,Equipos,Guión,Confederado,NotasFacilitador,PuntosDebriefing,Aprendizaje,Referencias,Escenarios")] Formulario formulario)
         {
             if (id != formulario.Id)
             {

@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FORMULARIOCENSI.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class GeneralMigration : Migration
+    public partial class FormularioMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,6 +57,7 @@ namespace FORMULARIOCENSI.Data.Migrations
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    titulo = table.Column<string>(type: "text", nullable: false),
                     sinopsis = table.Column<string>(type: "text", nullable: false),
                     autores = table.Column<string>(type: "text", nullable: false),
                     historia_clinica = table.Column<string>(type: "text", nullable: false),

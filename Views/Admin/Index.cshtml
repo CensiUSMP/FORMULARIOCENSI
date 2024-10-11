@@ -14,7 +14,7 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Sinopsis)
+                        @Html.DisplayNameFor(model => model.Titulo)
                     </th>
                     <th></th> <!-- Columna vacía para los botones -->
                 </tr>
@@ -23,7 +23,7 @@
             @foreach (var item in Model) {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Sinopsis)
+                        @Html.DisplayFor(modelItem => item.Titulo)
                     </td>
                     <td class="text-right d-flex justify-content-end"> <!-- Flexbox para alineación -->
                         <a class="btn btn-primary mx-1" asp-action="Edit" asp-route-id="@item.Id">Modificar</a>

@@ -12,11 +12,16 @@
 
     <form asp-controller="Formulario" asp-action="Edit">
     <input type="hidden" asp-form="Id"/>
+<div class="form-group formM">
+        <label asp-for="Titulo" class="form-label"></label>
+        <input asp-for="Titulo" class="form-control form-control-sm" type="text" placeholder="Escribe el título" aria-label=".form-control-sm" />
+</div>
 
 <div class="form-group formM">
         <label asp-for="Sinopsis" class="form-label"></label>
-        <input asp-for="Sinopsis" class="form-control form-control-sm" type="text" placeholder="Escribe la Sinopsis" aria-label=".form-control-sm" />
+        <input asp-for="Sinopsis" class="form-control" cols="30" rows="10"/>
 </div>
+
 <div class="form-group formM">
         <label asp-for="Autores" class="control-label"></label>
         <input asp-for="Autores" class="form-control" />
