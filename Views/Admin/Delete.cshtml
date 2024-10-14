@@ -4,110 +4,371 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1>ELIMINAR CASO</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Formulario</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Titulo)
         </dt>
-        <dt class = "col-sm-2">
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.DatosPaciente)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.DatosPaciente)
+        </dd>
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Sinopsis)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Sinopsis)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Base)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Base)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado1)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado1)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado2)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado2)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado3)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado3)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado4)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado4)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado5)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado5)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado6)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado6)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado7)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado7)
+        </dd>
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Autores)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Autores)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.HistoriaClinica)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.HistoriaClinica)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NotaIngreso)
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.SituaciónTriaje)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NotaIngreso)
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.SituaciónTriaje)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.NotaHospitalizacion)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.NotaHospitalizacion)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.SignosVitales)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.SignosVitales)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.EstadoGeneral)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.EstadoGeneral)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Cardiovascular)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Cardiovascular)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Cuello)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Cuello)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Respiratorio)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Respiratorio)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Abdomen)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Abdomen)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.GenitoUrinario)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.GenitoUrinario)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.AparatoLocomotor)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.AparatoLocomotor)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Piel)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Piel)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Neurologico)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Neurologico)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Endovenoso)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Endovenoso)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Laboratorios)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Laboratorios)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Recomendaciones)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Recomendaciones)
+        </dd>
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Ordenes)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Ordenes)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.CompetenciaGeneral)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.CompetenciaGeneral)
+        </dd>
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Objetivos)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Objetivos)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Desempeño)
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Identificar)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Desempeño)
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Identificar)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Distinguir)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Distinguir)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Discriminar)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Discriminar)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Actuar)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Actuar)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Usar)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Usar)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Aplicar)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Aplicar)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.MedidasEsenciales)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.MedidasEsenciales)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Baseline)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Baseline)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado1Desem)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado1Desem)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado2Desem)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado2Desem)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado3Desem)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado3Desem)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado4Desem)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado4Desem)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado5Desem)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado5Desem)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado6Desem)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado6Desem)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado7Desem)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado7Desem)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Estado8Desem)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Estado8Desem)
+        </dd>
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Preguntas)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Preguntas)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Equipos)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Equipos)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Guión)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Guión)
-        </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Confederado)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Confederado)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NotasFacilitador)
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Definiciones)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NotasFacilitador)
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Definiciones)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Herramientas)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Herramientas)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.MonitorDesfibrilador)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.MonitorDesfibrilador)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Enfoque)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Enfoque)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Control)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Control)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Bibliografía)
+        </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Bibliografía)
+        </dd>
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.PuntosDebriefing)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.PuntosDebriefing)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Aprendizaje)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Aprendizaje)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Referencias)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Referencias)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Escenarios)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-12">
             @Html.DisplayFor(model => model.Escenarios)
         </dd>
     </dl>

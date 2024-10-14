@@ -31,6 +31,26 @@ namespace FORMULARIOCENSI.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Abdomen")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("abdomen");
+
+                    b.Property<string>("Actuar")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("actuar");
+
+                    b.Property<string>("AparatoLocomotor")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("aparato_locomotor");
+
+                    b.Property<string>("Aplicar")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("aplicar");
+
                     b.Property<string>("Aprendizaje")
                         .IsRequired()
                         .HasColumnType("text")
@@ -41,15 +61,75 @@ namespace FORMULARIOCENSI.Data.Migrations
                         .HasColumnType("text")
                         .HasColumnName("autores");
 
+                    b.Property<string>("Base")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("base");
+
+                    b.Property<string>("Baseline")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("baseline");
+
+                    b.Property<string>("Bibliografía")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("bibliografía");
+
+                    b.Property<string>("Cardiovascular")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("cardiovascular");
+
+                    b.Property<string>("CompetenciaGeneral")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("competencia_general");
+
                     b.Property<string>("Confederado")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("confederado");
 
-                    b.Property<string>("Desempeño")
+                    b.Property<string>("Control")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("desempeno");
+                        .HasColumnName("control");
+
+                    b.Property<string>("Cuello")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("cuello");
+
+                    b.Property<string>("DatosPaciente")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("DatosPaciente");
+
+                    b.Property<string>("Definiciones")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("definiciones");
+
+                    b.Property<string>("Discriminar")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("discriminar");
+
+                    b.Property<string>("Distinguir")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("distinguir");
+
+                    b.Property<string>("Endovenoso")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("endovenoso");
+
+                    b.Property<string>("Enfoque")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("enfoque");
 
                     b.Property<string>("Equipos")
                         .IsRequired()
@@ -61,25 +141,130 @@ namespace FORMULARIOCENSI.Data.Migrations
                         .HasColumnType("text")
                         .HasColumnName("escenarios");
 
-                    b.Property<string>("Guión")
+                    b.Property<string>("Estado1")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("guion");
+                        .HasColumnName("estado1");
+
+                    b.Property<string>("Estado1Desem")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado1_desem");
+
+                    b.Property<string>("Estado2")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado2");
+
+                    b.Property<string>("Estado2Desem")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado2_desem");
+
+                    b.Property<string>("Estado3")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado3");
+
+                    b.Property<string>("Estado3Desem")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado3_desem");
+
+                    b.Property<string>("Estado4")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado4");
+
+                    b.Property<string>("Estado4Desem")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado4_desem");
+
+                    b.Property<string>("Estado5")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado5");
+
+                    b.Property<string>("Estado5Desem")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado5_desem");
+
+                    b.Property<string>("Estado6")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado6");
+
+                    b.Property<string>("Estado6Desem")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado6_desem");
+
+                    b.Property<string>("Estado7")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado7");
+
+                    b.Property<string>("Estado7Desem")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado7_desem");
+
+                    b.Property<string>("Estado8Desem")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado8_desem");
+
+                    b.Property<string>("EstadoGeneral")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("estado_general");
+
+                    b.Property<string>("GenitoUrinario")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("genito_urinario");
+
+                    b.Property<string>("Herramientas")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("herramientas");
 
                     b.Property<string>("HistoriaClinica")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("historia_clinica");
 
-                    b.Property<string>("NotaIngreso")
+                    b.Property<string>("Identificar")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("nota_ingreso");
+                        .HasColumnName("identificar");
 
-                    b.Property<string>("NotasFacilitador")
+                    b.Property<string>("Laboratorios")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("notas_facilitador");
+                        .HasColumnName("laboratorios");
+
+                    b.Property<string>("MedidasEsenciales")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Medidas_esenciales");
+
+                    b.Property<string>("MonitorDesfibrilador")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("monitor_desfibrilador");
+
+                    b.Property<string>("Neurologico")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("neurologico");
+
+                    b.Property<string>("NotaHospitalizacion")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("nota_hospitalizacion");
 
                     b.Property<string>("Objetivos")
                         .IsRequired()
@@ -91,6 +276,11 @@ namespace FORMULARIOCENSI.Data.Migrations
                         .HasColumnType("text")
                         .HasColumnName("ordenes");
 
+                    b.Property<string>("Piel")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("piel");
+
                     b.Property<string>("Preguntas")
                         .IsRequired()
                         .HasColumnType("text")
@@ -101,20 +291,45 @@ namespace FORMULARIOCENSI.Data.Migrations
                         .HasColumnType("text")
                         .HasColumnName("puntos_debriefing");
 
+                    b.Property<string>("Recomendaciones")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("recomendaciones");
+
                     b.Property<string>("Referencias")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("referencias");
+
+                    b.Property<string>("Respiratorio")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("respiratorio");
+
+                    b.Property<string>("SignosVitales")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("signos_vitales");
 
                     b.Property<string>("Sinopsis")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("sinopsis");
 
+                    b.Property<string>("SituaciónTriaje")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("situacion_triaje");
+
                     b.Property<string>("Titulo")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("titulo");
+
+                    b.Property<string>("Usar")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("usar");
 
                     b.HasKey("Id");
 

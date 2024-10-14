@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>CREAR CASO</h1>
 
 <h4>Formulario</h4>
 <hr />
@@ -18,9 +18,54 @@
                 <span asp-validation-for="Titulo" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="DatosPaciente" class="control-label"></label>
+                <input asp-for="DatosPaciente" class="form-control" />
+                <span asp-validation-for="DatosPaciente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Sinopsis" class="control-label"></label>
                 <input asp-for="Sinopsis" class="form-control" />
                 <span asp-validation-for="Sinopsis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Base" class="control-label"></label>
+                <input asp-for="Base" class="form-control" />
+                <span asp-validation-for="Base" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado1" class="control-label"></label>
+                <input asp-for="Estado1" class="form-control" />
+                <span asp-validation-for="Estado1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado2" class="control-label"></label>
+                <input asp-for="Estado2" class="form-control" />
+                <span asp-validation-for="Estado2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado3" class="control-label"></label>
+                <input asp-for="Estado3" class="form-control" />
+                <span asp-validation-for="Estado3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado4" class="control-label"></label>
+                <input asp-for="Estado4" class="form-control" />
+                <span asp-validation-for="Estado4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado5" class="control-label"></label>
+                <input asp-for="Estado5" class="form-control" />
+                <span asp-validation-for="Estado5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado6" class="control-label"></label>
+                <input asp-for="Estado6" class="form-control" />
+                <span asp-validation-for="Estado6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado7" class="control-label"></label>
+                <input asp-for="Estado7" class="form-control" />
+                <span asp-validation-for="Estado7" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Autores" class="control-label"></label>
@@ -33,9 +78,79 @@
                 <span asp-validation-for="HistoriaClinica" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NotaIngreso" class="control-label"></label>
-                <input asp-for="NotaIngreso" class="form-control" />
-                <span asp-validation-for="NotaIngreso" class="text-danger"></span>
+                <label asp-for="SituaciónTriaje" class="control-label"></label>
+                <input asp-for="SituaciónTriaje" class="form-control" />
+                <span asp-validation-for="SituaciónTriaje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaHospitalizacion" class="control-label"></label>
+                <input asp-for="NotaHospitalizacion" class="form-control" />
+                <span asp-validation-for="NotaHospitalizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SignosVitales" class="control-label"></label>
+                <input asp-for="SignosVitales" class="form-control" />
+                <span asp-validation-for="SignosVitales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoGeneral" class="control-label"></label>
+                <input asp-for="EstadoGeneral" class="form-control" />
+                <span asp-validation-for="EstadoGeneral" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cardiovascular" class="control-label"></label>
+                <input asp-for="Cardiovascular" class="form-control" />
+                <span asp-validation-for="Cardiovascular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cuello" class="control-label"></label>
+                <input asp-for="Cuello" class="form-control" />
+                <span asp-validation-for="Cuello" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Respiratorio" class="control-label"></label>
+                <input asp-for="Respiratorio" class="form-control" />
+                <span asp-validation-for="Respiratorio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Abdomen" class="control-label"></label>
+                <input asp-for="Abdomen" class="form-control" />
+                <span asp-validation-for="Abdomen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GenitoUrinario" class="control-label"></label>
+                <input asp-for="GenitoUrinario" class="form-control" />
+                <span asp-validation-for="GenitoUrinario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AparatoLocomotor" class="control-label"></label>
+                <input asp-for="AparatoLocomotor" class="form-control" />
+                <span asp-validation-for="AparatoLocomotor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Piel" class="control-label"></label>
+                <input asp-for="Piel" class="form-control" />
+                <span asp-validation-for="Piel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Neurologico" class="control-label"></label>
+                <input asp-for="Neurologico" class="form-control" />
+                <span asp-validation-for="Neurologico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Endovenoso" class="control-label"></label>
+                <input asp-for="Endovenoso" class="form-control" />
+                <span asp-validation-for="Endovenoso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Laboratorios" class="control-label"></label>
+                <input asp-for="Laboratorios" class="form-control" />
+                <span asp-validation-for="Laboratorios" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recomendaciones" class="control-label"></label>
+                <input asp-for="Recomendaciones" class="form-control" />
+                <span asp-validation-for="Recomendaciones" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Ordenes" class="control-label"></label>
@@ -43,14 +158,94 @@
                 <span asp-validation-for="Ordenes" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="CompetenciaGeneral" class="control-label"></label>
+                <input asp-for="CompetenciaGeneral" class="form-control" />
+                <span asp-validation-for="CompetenciaGeneral" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Objetivos" class="control-label"></label>
                 <input asp-for="Objetivos" class="form-control" />
                 <span asp-validation-for="Objetivos" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Desempeño" class="control-label"></label>
-                <input asp-for="Desempeño" class="form-control" />
-                <span asp-validation-for="Desempeño" class="text-danger"></span>
+                <label asp-for="Identificar" class="control-label"></label>
+                <input asp-for="Identificar" class="form-control" />
+                <span asp-validation-for="Identificar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Distinguir" class="control-label"></label>
+                <input asp-for="Distinguir" class="form-control" />
+                <span asp-validation-for="Distinguir" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discriminar" class="control-label"></label>
+                <input asp-for="Discriminar" class="form-control" />
+                <span asp-validation-for="Discriminar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Actuar" class="control-label"></label>
+                <input asp-for="Actuar" class="form-control" />
+                <span asp-validation-for="Actuar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usar" class="control-label"></label>
+                <input asp-for="Usar" class="form-control" />
+                <span asp-validation-for="Usar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aplicar" class="control-label"></label>
+                <input asp-for="Aplicar" class="form-control" />
+                <span asp-validation-for="Aplicar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedidasEsenciales" class="control-label"></label>
+                <input asp-for="MedidasEsenciales" class="form-control" />
+                <span asp-validation-for="MedidasEsenciales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Baseline" class="control-label"></label>
+                <input asp-for="Baseline" class="form-control" />
+                <span asp-validation-for="Baseline" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado1Desem" class="control-label"></label>
+                <input asp-for="Estado1Desem" class="form-control" />
+                <span asp-validation-for="Estado1Desem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado2Desem" class="control-label"></label>
+                <input asp-for="Estado2Desem" class="form-control" />
+                <span asp-validation-for="Estado2Desem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado3Desem" class="control-label"></label>
+                <input asp-for="Estado3Desem" class="form-control" />
+                <span asp-validation-for="Estado3Desem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado4Desem" class="control-label"></label>
+                <input asp-for="Estado4Desem" class="form-control" />
+                <span asp-validation-for="Estado4Desem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado5Desem" class="control-label"></label>
+                <input asp-for="Estado5Desem" class="form-control" />
+                <span asp-validation-for="Estado5Desem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado6Desem" class="control-label"></label>
+                <input asp-for="Estado6Desem" class="form-control" />
+                <span asp-validation-for="Estado6Desem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado7Desem" class="control-label"></label>
+                <input asp-for="Estado7Desem" class="form-control" />
+                <span asp-validation-for="Estado7Desem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado8Desem" class="control-label"></label>
+                <input asp-for="Estado8Desem" class="form-control" />
+                <span asp-validation-for="Estado8Desem" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Preguntas" class="control-label"></label>
@@ -63,19 +258,39 @@
                 <span asp-validation-for="Equipos" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Guión" class="control-label"></label>
-                <input asp-for="Guión" class="form-control" />
-                <span asp-validation-for="Guión" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Confederado" class="control-label"></label>
                 <input asp-for="Confederado" class="form-control" />
                 <span asp-validation-for="Confederado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NotasFacilitador" class="control-label"></label>
-                <input asp-for="NotasFacilitador" class="form-control" />
-                <span asp-validation-for="NotasFacilitador" class="text-danger"></span>
+                <label asp-for="Definiciones" class="control-label"></label>
+                <input asp-for="Definiciones" class="form-control" />
+                <span asp-validation-for="Definiciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Herramientas" class="control-label"></label>
+                <input asp-for="Herramientas" class="form-control" />
+                <span asp-validation-for="Herramientas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonitorDesfibrilador" class="control-label"></label>
+                <input asp-for="MonitorDesfibrilador" class="form-control" />
+                <span asp-validation-for="MonitorDesfibrilador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enfoque" class="control-label"></label>
+                <input asp-for="Enfoque" class="form-control" />
+                <span asp-validation-for="Enfoque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Control" class="control-label"></label>
+                <input asp-for="Control" class="form-control" />
+                <span asp-validation-for="Control" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bibliografía" class="control-label"></label>
+                <input asp-for="Bibliografía" class="form-control" />
+                <span asp-validation-for="Bibliografía" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PuntosDebriefing" class="control-label"></label>

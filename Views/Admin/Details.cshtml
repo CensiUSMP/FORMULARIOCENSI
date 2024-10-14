@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>DETALLE DEL CASO</h1>
 
 <div>
     <h4>Formulario</h4>
@@ -13,105 +13,356 @@
         <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Titulo)
         </dt>
+        <dd class = "col-12">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.DatosPaciente)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.DatosPaciente.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Resumen del caso</h4>
         <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Sinopsis)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Sinopsis)
+        <dd class="col-12">
+            @Html.Raw(Model.Sinopsis.Replace(Environment.NewLine, "<br />"))
         </dd>
+        <h1></h1>
+        <h4>En estado paciente Base:</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Base.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>En el Estado 1: Inicio de la atención</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado1.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>En el Estado 2: TV estable</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado2.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 3: Amiodarona o lidocaína administrada</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado3.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 4: No Mejoría de la TV</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado4.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 5: Paciente recuperado</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado5.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 6: No mejoría de la TV 2da dosis de amiodarona</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado6.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 7: Paciente recuperado luego de cardioversión eléctrica sincronizada</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado7.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
         <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Autores)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Autores)
+        <dd class="col-12">
+            @Html.Raw(Model.Autores.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h3>Antecedentes del Paciente</h3>
+        <h4>Historia clínica del paciente</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.HistoriaClinica.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Nota de ingreso</h4>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.SituaciónTriaje)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.SituaciónTriaje.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.HistoriaClinica)
+            @Html.DisplayNameFor(model => model.NotaHospitalizacion)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.HistoriaClinica)
+        <dd class="col-12">
+            @Html.Raw(Model.NotaHospitalizacion.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.NotaIngreso)
+            @Html.DisplayNameFor(model => model.SignosVitales)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.NotaIngreso)
+        <dd class="col-12">
+            @Html.Raw(Model.SignosVitales.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.Ordenes)
+            @Html.DisplayNameFor(model => model.EstadoGeneral)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Ordenes)
+        <dd class="col-12">
+            @Html.Raw(Model.EstadoGeneral.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Cardiovascular)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Cardiovascular.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Cuello)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Cuello.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Respiratorio)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Respiratorio.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Abdomen)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Abdomen.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.GenitoUrinario)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.GenitoUrinario.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.AparatoLocomotor)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.AparatoLocomotor.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Piel)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Piel.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Neurologico)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Neurologico.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Endovenoso)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Endovenoso.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Laboratorios)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Laboratorios.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Recomendaciones)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Recomendaciones.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h3>Órdenes</h3>
+        <h4>Orden inicial del médico tratante</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Ordenes.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h3>Preparación</h3>
+        <h4>Objetivos del aprendizaje</h4>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.CompetenciaGeneral)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.CompetenciaGeneral.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
             @Html.DisplayNameFor(model => model.Objetivos)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Objetivos)
+        <dd class="col-12">
+            @Html.Raw(Model.Objetivos.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.Desempeño)
+            @Html.DisplayNameFor(model => model.Identificar)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Desempeño)
+        <dd class="col-12">
+            @Html.Raw(Model.Identificar.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.Preguntas)
+            @Html.DisplayNameFor(model => model.Distinguir)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Preguntas)
+        <dd class="col-12">
+            @Html.Raw(Model.Distinguir.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.Equipos)
+            @Html.DisplayNameFor(model => model.Discriminar)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Equipos)
+        <dd class="col-12">
+            @Html.Raw(Model.Discriminar.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.Guión)
+            @Html.DisplayNameFor(model => model.Actuar)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Guión)
+        <dd class="col-12">
+            @Html.Raw(Model.Actuar.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.Confederado)
+            @Html.DisplayNameFor(model => model.Usar)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Confederado)
+        <dd class="col-12">
+            @Html.Raw(Model.Usar.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.NotasFacilitador)
+            @Html.DisplayNameFor(model => model.Aplicar)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.NotasFacilitador)
+        <dd class="col-12">
+            @Html.Raw(Model.Aplicar.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Medidas esenciales de rendimiento del escenario</h4>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.MedidasEsenciales)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.MedidasEsenciales.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Base line: Evaluación inicial</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Baseline.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 1: Inicio de atención</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado1Desem.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 2: TV estable</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado2Desem.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 3: Amiodarona administrada</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado3Desem.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 4: No Mejoría de la TV</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado4Desem.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 5: Paciente recuperado</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado5Desem.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 6: No mejoría de la TV 2da dosis de infusión de amiodarona</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado6Desem.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 7: Paciente recuperado de 2da dosis de infusión de amiodarona</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado7Desem.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Estado 8: Paciente que no recibe terapia</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Estado8Desem.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Preguntas de preparación</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Preguntas.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Equipos y suministros</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Equipos.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Confederados</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Confederado.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h3>Notas</h3>
+        <h4>Notas del facilitador</h4>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Definiciones)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Definiciones.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.Herramientas)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.Herramientas.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <dt class = "col-12">
+            @Html.DisplayNameFor(model => model.MonitorDesfibrilador)
+        </dt>
+        <dd class="col-12">
+            @Html.Raw(Model.MonitorDesfibrilador.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Enfoque de caso: recepción</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Enfoque.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Control post terapia:</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Control.Replace(Environment.NewLine, "<br />"))
         </dd>
         <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.PuntosDebriefing)
+            @Html.DisplayNameFor(model => model.Bibliografía)
         </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.PuntosDebriefing)
+        <dd class="col-12">
+            @Html.Raw(Model.Bibliografía.Replace(Environment.NewLine, "<br />"))
         </dd>
-        <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.Aprendizaje)
-        </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Aprendizaje)
+        <h1></h1>
+        <h4>Puntos de debriefing</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.PuntosDebriefing.Replace(Environment.NewLine, "<br />"))
         </dd>
-        <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.Referencias)
-        </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Referencias)
+        <h1></h1>
+        <h3>Aprendizaje - preguntas y respuestas</h3>
+        <h4>Base line: Evaluación inicial</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Aprendizaje.Replace(Environment.NewLine, "<br />"))
         </dd>
-        <dt class = "col-12">
-            @Html.DisplayNameFor(model => model.Escenarios)
-        </dt>
-        <dd class = "col-12">
-            @Html.DisplayFor(model => model.Escenarios)
+        <h1></h1>
+        <h4>Referencias bibliográficas</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Referencias.Replace(Environment.NewLine, "<br />"))
+        </dd>
+        <h1></h1>
+        <h4>Escenarios precargados</h4>
+        <dd class="col-12">
+            @Html.Raw(Model.Escenarios.Replace(Environment.NewLine, "<br />"))
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Modificar</a> |
+    <a class="btn btn-primary" asp-action="Index">Regresar a la lista</a>
 </div>

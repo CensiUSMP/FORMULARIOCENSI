@@ -16,82 +16,285 @@
             <input asp-for="Titulo" class="form-control"/>
         </div>
         <div class="text-left">
+            <label for="DatosPaciente" class="control-label">Datos del paciente</label>
+            <textarea asp-for="DatosPaciente" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
             <label asp-for="Sinopsis" class="control-label"></label>
             <textarea asp-for="Sinopsis" class="form-control" cols="30" rows="10"></textarea>
         </div>
-
+        <div class="text-left">
+            <label for="Base" class="control-label">En estadio paciente Base:</label>
+            <textarea asp-for="Base" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="Estado1" class="control-label">En el Estado 1: Inicio de la atención</label>
+            <textarea asp-for="Estado1" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="Estado2" class="control-label">En el Estado 2: TV estable</label>
+            <textarea asp-for="Estado2" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="Estado3" class="control-label">Estado 3: Amiodarona o lidocaína administrada</label>
+            <textarea asp-for="Estado3" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="Estado4" class="control-label">Estado 4: No Mejoría de la TV</label>
+            <textarea asp-for="Estado4" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="Estado5" class="control-label">Estado 5: Paciente recuperado</label>
+            <textarea asp-for="Estado5" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="Estado6" class="control-label">Estado 6: No mejoría de la TV 2da dosis de amiodarona</label>
+            <textarea asp-for="Estado6" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="Estado7" class="control-label">Estado 7: Paciente recuperado luego de cardioversión eléctrica sincronizada</label>
+            <textarea asp-for="Estado7" class="form-control" cols="30" rows="10"></textarea>
+        </div>
         <div class="text-left">
             <label asp-for="Autores" class="control-label"></label>
-            <input asp-for="Autores" class="form-control"/>
+            <textarea asp-for="Autores" class="form-control" cols="30" rows="10"></textarea>
         </div>
-
+        <h1></h1>
+        <h4>Antecedentes del Paciente</h4>
         <div class="text-left">
-            <label asp-for="HistoriaClinica" class="control-label"></label>
-            <input asp-for="HistoriaClinica" class="form-control"/>
+            <label for="HistoriaClinica" class="control-label">Historia clínica del paciente</label>
+            <textarea asp-for="HistoriaClinica" class="form-control" cols="30" rows="10"></textarea>
         </div>
-
+        <h1></h1>
+        <h4>Nota de ingreso</h4>
         <div class="text-left">
-            <label asp-for="NotaIngreso" class="control-label"></label>
-            <input asp-for="NotaIngreso" class="form-control"/>
+            <label for="SituaciónTriaje" class="control-label">Situación en triaje</label>
+            <textarea asp-for="SituaciónTriaje" class="form-control" cols="30" rows="10"></textarea>
         </div>
-
         <div class="text-left">
-            <label asp-for="Ordenes" class="control-label"></label>
-            <input asp-for="Ordenes" class="form-control"/>
+            <label for="NotaHospitalizacion" class="control-label">Nota de hospitalización</label>
+            <textarea asp-for="NotaHospitalizacion" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <h4>A la evaluación</h4>
+        <div class="text-left">
+            <label for="SignosVitales" class="control-label">Signos vitales</label>
+            <textarea asp-for="SignosVitales" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="EstadoGeneral" class="control-label">Estado general</label>
+            <textarea asp-for="EstadoGeneral" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label asp-for="Cardiovascular" class="control-label"></label>
+            <textarea asp-for="Cardiovascular" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label asp-for="Cuello" class="control-label"></label>
+            <textarea asp-for="Cuello" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label asp-for="Respiratorio" class="control-label"></label>
+            <textarea asp-for="Respiratorio" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label asp-for="Abdomen" class="control-label"></label>
+            <textarea asp-for="Abdomen" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="GenitoUrinario" class="control-label">Genito-Urinario</label>
+            <textarea asp-for="GenitoUrinario" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label for="AparatoLocomotor" class="control-label">Aparato Locomotor</label>
+            <textarea asp-for="AparatoLocomotor" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label asp-for="Piel" class="control-label"></label>
+            <textarea asp-for="Piel" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label asp-for="Neurologico" class="control-label"></label>
+            <textarea asp-for="Neurologico" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label asp-for="Endovenoso" class="control-label"></label>
+            <textarea asp-for="Endovenoso" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label asp-for="Laboratorios" class="control-label"></label>
+            <textarea asp-for="Laboratorios" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="text-left">
+            <label asp-for="Recomendaciones" class="control-label"></label>
+            <textarea asp-for="Recomendaciones" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <h4>Órdenes</h4>
+        <div class="text-left">
+            <label for="Ordenes" class="control-label">Orden inicial del médico tratante:</label>
+            <textarea asp-for="Ordenes" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <h3>Preparación</h3>
+        <h4>Objetivos del aprendizaje</h4>
+        <div class="text-left">
+            <label for="CompetenciaGeneral" class="control-label">Competencia general</label>
+            <textarea asp-for="CompetenciaGeneral" class="form-control" cols="30" rows="10"></textarea>
         </div>
 
         <div class="text-left">
             <label asp-for="Objetivos" class="control-label"></label>
-            <input asp-for="Objetivos" class="form-control"/>
+            <textarea asp-for="Objetivos" class="form-control" cols="30" rows="10"></textarea>
         </div>
 
         <div class="text-left">
-            <label asp-for="Desempeño" class="control-label"></label>
-            <input asp-for="Desempeño" class="form-control"/>
+            <label asp-for="Identificar" class="control-label"></label>
+            <textarea asp-for="Identificar" class="form-control" cols="30" rows="10"></textarea>
         </div>
 
         <div class="text-left">
-            <label asp-for="Preguntas" class="control-label"></label>
-            <input asp-for="Preguntas" class="form-control"/>
+            <label asp-for="Distinguir" class="control-label"></label>
+            <textarea asp-for="Distinguir" class="form-control" cols="30" rows="10"></textarea>
         </div>
 
         <div class="text-left">
-            <label asp-for="Equipos" class="control-label"></label>
-            <input asp-for="Equipos" class="form-control"/>
+            <label asp-for="Discriminar" class="control-label"></label>
+            <textarea asp-for="Discriminar" class="form-control" cols="30" rows="10"></textarea>
         </div>
 
         <div class="text-left">
-            <label asp-for="Guión" class="control-label"></label>
-            <textarea asp-for="Guión" class="form-control" cols="30" rows="10"></textarea>
+            <label asp-for="Actuar" class="control-label"></label>
+            <textarea asp-for="Actuar" class="form-control" cols="30" rows="10"></textarea>
         </div>
 
         <div class="text-left">
-            <label asp-for="Confederado" class="control-label"></label>
-            <input asp-for="Confederado" class="form-control"/>
+            <label asp-for="Usar" class="control-label"></label>
+            <textarea asp-for="Usar" class="form-control" cols="30" rows="10"></textarea>
         </div>
 
         <div class="text-left">
-            <label asp-for="NotasFacilitador" class="control-label"></label>
-            <textarea asp-for="NotasFacilitador" class="form-control" cols="30" rows="10"></textarea>
+            <label asp-for="Aplicar" class="control-label"></label>
+            <textarea asp-for="Aplicar" class="form-control" cols="30" rows="10"></textarea>
         </div>
-
+        <h1></h1>
+        <h3>Desempeño como medida del aprendizaje</h3>
+        <h4>Medidas esenciales de rendimiento del escenario</h4>
         <div class="text-left">
-            <label asp-for="PuntosDebriefing" class="control-label"></label>
-            <input asp-for="PuntosDebriefing" class="form-control"/>
+            <label asp-for="MedidasEsenciales" class="control-label"></label>
+            <textarea asp-for="MedidasEsenciales" class="form-control" cols="30" rows="10"></textarea>
         </div>
-
+        <h1></h1>
         <div class="text-left">
-            <label asp-for="Aprendizaje" class="control-label"></label>
-            <input asp-for="Aprendizaje" class="form-control"/>
+            <label for="Baseline" class="control-label">Base line: Evaluación inicial</label>
+            <textarea asp-for="Baseline" class="form-control" cols="30" rows="10"></textarea>
         </div>
-
+        <h1></h1>
         <div class="text-left">
-            <label asp-for="Referencias" class="control-label"></label>
-            <input asp-for="Referencias" class="form-control"/>
+            <label for="Estado1Desem" class="control-label">Estado 1: Inicio de atención</label>
+            <textarea asp-for="Estado1Desem" class="form-control" cols="30" rows="10"></textarea>
         </div>
-
+        <h1></h1>
         <div class="text-left">
-            <label asp-for="Escenarios" class="control-label"></label>
+            <label for="Estado2Desem" class="control-label">Estado 2: TV estable</label>
+            <textarea asp-for="Estado2Desem" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Estado3Desem" class="control-label">Estado 3: Amiodarona administrada</label>
+            <textarea asp-for="Estado3Desem" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Estado4Desem" class="control-label">Estado 4: No Mejoría de la TV</label>
+            <textarea asp-for="Estado4Desem" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Estado5Desem" class="control-label">Estado 5: Paciente recuperado</label>
+            <textarea asp-for="Estado5Desem" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Estado6Desem" class="control-label">Estado 6: No mejoría de la TV 2da dosis de infusión de amiodarona</label>
+            <textarea asp-for="Estado6Desem" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Estado7Desem" class="control-label">Estado 7: Paciente recuperado de 2da dosis de infusión de amiodarona</label>
+            <textarea asp-for="Estado7Desem" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Estado8Desem" class="control-label">Estado 8: Paciente que no recibe terapia</label>
+            <textarea asp-for="Estado8Desem" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Preguntas" class="control-label">Preguntas de preparación</label>
+            <textarea asp-for="Preguntas" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Equipos" class="control-label">Equipos y suministros</label>
+            <textarea asp-for="Equipos" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Confederado" class="control-label">Confederedos</label>
+            <textarea asp-for="Confederado" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <h3>Notas</h3>
+        <h4>Notas del facilitador</h4>
+        <div class="text-left">
+            <label asp-for="Definiciones" class="control-label"></label>
+            <textarea asp-for="Definiciones" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label asp-for="Herramientas" class="control-label"></label>
+            <textarea asp-for="Herramientas" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="MonitorDesfibrilador" class="control-label">Monitor-desfibrilador</label>
+            <textarea asp-for="MonitorDesfibrilador" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Enfoque" class="control-label">Enfoque de caso: recepción</label>
+            <textarea asp-for="Enfoque" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Control" class="control-label">Control post terapia</label>
+            <textarea asp-for="Control" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label asp-for="Bibliografía" class="control-label"></label>
+            <textarea asp-for="Bibliografía" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="PuntosDebriefing" class="control-label">Puntos de debriefing</label>
+            <textarea asp-for="PuntosDebriefing" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <h4>Aprendizaje - preguntas y respuestas</h4>
+        <div class="text-left">
+            <label for="Aprendizaje" class="control-label">Base line: Evaluación inicial</label>
+            <textarea asp-for="Aprendizaje" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Referencias" class="control-label">Referencias bibliográficas</label>
+            <textarea asp-for="Referencias" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <h1></h1>
+        <div class="text-left">
+            <label for="Escenarios" class="control-label">Escenarios precargados</label>
             <textarea asp-for="Escenarios" class="form-control" cols="30" rows="10"></textarea>
         </div>
 

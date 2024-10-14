@@ -1,111 +1,326 @@
 @model FORMULARIOCENSI.Models.Formulario;
 @{
-    ViewData["Title"] = "Formulario";
+        ViewData["Title"] = "Formulario";
 }
 
 <div class="text-center">
-    <h1>@ViewData["Title"]</h1>
+        <h1>@ViewData["Title"]</h1>
 </div>
 
 <div class="text-left">
-    <h1 class="display-4"></h1>
+        <h1 class="display-4"></h1>
 
-    <form asp-controller="Formulario" asp-action="Edit">
-    <input type="hidden" asp-form="Id"/>
-<div class="form-group formM">
-        <label asp-for="Titulo" class="form-label"></label>
-        <input asp-for="Titulo" class="form-control form-control-sm" type="text" placeholder="Escribe el título" aria-label=".form-control-sm" />
-</div>
+        <form asp-controller="Formulario" asp-action="Edit">
+                <input type="hidden" asp-form="Id" />
+                <div class="form-group formM">
+                        <label asp-for="Titulo" class="form-label"></label>
+                        <input asp-for="Titulo" class="form-control form-control-sm" type="text"
+                                placeholder="Escribe el título" aria-label=".form-control-sm" />
+                </div>
 
-<div class="form-group formM">
-        <label asp-for="Sinopsis" class="form-label"></label>
-        <input asp-for="Sinopsis" class="form-control" cols="30" rows="10"/>
-</div>
+                <div class="form-group formM">
+                        <label asp-for="DatosPaciente" class="form-label"></label>
+                        <input asp-for="DatosPaciente" class="form-control" cols="30" rows="10" />
+                </div>
 
-<div class="form-group formM">
-        <label asp-for="Autores" class="control-label"></label>
-        <input asp-for="Autores" class="form-control" />
-</div>  
+                <div class="form-group formM">
+                        <label asp-for="Sinopsis" class="form-label"></label>
+                        <input asp-for="Sinopsis" class="form-control" cols="30" rows="10" />
+                </div>
 
-        <div class="form-group formM">
-        <label asp-for="HistoriaClinica" class="control-label"></label>
-        <input asp-for="HistoriaClinica" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="Base" class="form-label"></label>
+                        <input asp-for="Base" class="form-control" cols="30" rows="10" />
+                </div>
 
-    <div class="form-group formM">
-        <label asp-for="NotaIngreso" class="control-label"></label>
-        <input asp-for="NotaIngreso" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="Estado1" class="form-label"></label>
+                        <input asp-for="Estado1" class="form-control" cols="30" rows="10" />
+                </div>
 
-       <div class="form-group formM">
-        <label asp-for="Ordenes" class="control-label"></label>
-        <input asp-for="Ordenes" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="Estado2" class="form-label"></label>
+                        <input asp-for="Estado2" class="form-control" cols="30" rows="10" />
+                </div>
 
-        <div class="form-group formM">
-        <label asp-for="Objetivos" class="control-label"></label>
-        <input asp-for="Objetivos" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="Estado3" class="form-label"></label>
+                        <input asp-for="Estado3" class="form-control" cols="30" rows="10" />
+                </div>
 
-        <div class="form-group formM">
-        <label asp-for="Desempeño" class="control-label"></label>
-        <input asp-for="Desempeño" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="Estado4" class="form-label"></label>
+                        <input asp-for="Estado4" class="form-control" cols="30" rows="10" />
+                </div>
 
-       <div class="form-group formM">
-        <label asp-for="Preguntas" class="control-label"></label>
-        <input asp-for="Preguntas" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="Estado5" class="form-label"></label>
+                        <input asp-for="Estado5" class="form-control" cols="30" rows="10" />
+                </div>
 
-        <div class="form-group formM">
-        <label asp-for="Equipos" class="control-label"></label>
-        <input asp-for="Equipos" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="Estado6" class="form-label"></label>
+                        <input asp-for="Estado6" class="form-control" cols="30" rows="10" />
+                </div>
 
-       <div class="form-group formM">
-        <label asp-for="Guión" class="control-label"></label>
-        <input asp-for="Guión" class="form-control" cols="30" rows="10"/>
-</div>
+                <div class="form-group formM">
+                        <label asp-for="Estado7" class="form-label"></label>
+                        <input asp-for="Estado7" class="form-control" cols="30" rows="10" />
+                </div>
 
-        <div class="form-group formM">
-        <label asp-for="Confederado" class="control-label"></label>
-        <input asp-for="Confederado" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="Autores" class="control-label"></label>
+                        <input asp-for="Autores" class="form-control" />
+                </div>
 
-        <div class="form-group formM">
-        <label asp-for="NotasFacilitador" class="control-label"></label>
-        <input asp-for="NotasFacilitador" class="form-control" cols="30" rows="10"/>
-</div>
+                <div class="form-group formM">
+                        <label asp-for="HistoriaClinica" class="control-label"></label>
+                        <input asp-for="HistoriaClinica" class="form-control" />
+                </div>
 
-       <div class="form-group formM">
-        <label asp-for="PuntosDebriefing" class="control-label"></label>
-        <input asp-for="PuntosDebriefing" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="SituaciónTriaje" class="control-label"></label>
+                        <input asp-for="SituaciónTriaje" class="form-control" />
+                </div>
 
-        <div class="form-group formM">
-        <label asp-for="Aprendizaje" class="control-label"></label>
-        <input asp-for="Aprendizaje" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="NotaHospitalizacion" class="control-label"></label>
+                        <input asp-for="NotaHospitalizacion" class="form-control" />
+                </div>
 
-        <div class="form-group formM">
-        <label asp-for="Referencias" class="control-label"></label>
-        <input asp-for="Referencias" class="form-control" />
-</div>
+                <div class="form-group formM">
+                        <label asp-for="SignosVitales" class="control-label"></label>
+                        <input asp-for="SignosVitales" class="form-control" />
+                </div>
 
-        <div class="form-group formM">
-        <label asp-for="Escenarios" class="control-label"></label>
-        <input asp-for="Escenarios" class="form-control" cols="30" rows="10"/>
-</div>
+                <div class="form-group formM">
+                        <label asp-for="EstadoGeneral" class="control-label"></label>
+                        <input asp-for="EstadoGeneral" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Cardiovascular" class="control-label"></label>
+                        <input asp-for="Cardiovascular" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Cuello" class="control-label"></label>
+                        <input asp-for="Cuello" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Respiratorio" class="control-label"></label>
+                        <input asp-for="Respiratorio" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Abdomen" class="control-label"></label>
+                        <input asp-for="Abdomen" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="GenitoUrinario" class="control-label"></label>
+                        <input asp-for="GenitoUrinario" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="AparatoLocomotor" class="control-label"></label>
+                        <input asp-for="AparatoLocomotor" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Piel" class="control-label"></label>
+                        <input asp-for="Piel" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Neurologico" class="control-label"></label>
+                        <input asp-for="Neurologico" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Endovenoso" class="control-label"></label>
+                        <input asp-for="Endovenoso" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Laboratorios" class="control-label"></label>
+                        <input asp-for="Laboratorios" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Recomendaciones" class="control-label"></label>
+                        <input asp-for="Recomendaciones" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Ordenes" class="control-label"></label>
+                        <input asp-for="Ordenes" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="CompetenciaGeneral" class="control-label"></label>
+                        <input asp-for="CompetenciaGeneral" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Objetivos" class="control-label"></label>
+                        <input asp-for="Objetivos" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Identificar" class="control-label"></label>
+                        <input asp-for="Identificar" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Distinguir" class="control-label"></label>
+                        <input asp-for="Distinguir" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Discriminar" class="control-label"></label>
+                        <input asp-for="Discriminar" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Actuar" class="control-label"></label>
+                        <input asp-for="Actuar" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Usar" class="control-label"></label>
+                        <input asp-for="Usar" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Aplicar" class="control-label"></label>
+                        <input asp-for="Aplicar" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="MedidasEsenciales" class="control-label"></label>
+                        <input asp-for="MedidasEsenciales" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Baseline" class="control-label"></label>
+                        <input asp-for="Baseline" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Estado1Desem" class="control-label"></label>
+                        <input asp-for="Estado1Desem" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Estado2Desem" class="control-label"></label>
+                        <input asp-for="Estado2Desem" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Estado3Desem" class="control-label"></label>
+                        <input asp-for="Estado3Desem" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Estado4Desem" class="control-label"></label>
+                        <input asp-for="Estado4Desem" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Estado5Desem" class="control-label"></label>
+                        <input asp-for="Estado5Desem" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Estado6Desem" class="control-label"></label>
+                        <input asp-for="Estado6Desem" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Estado7Desem" class="control-label"></label>
+                        <input asp-for="Estado7Desem" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Estado8Desem" class="control-label"></label>
+                        <input asp-for="Estado8Desem" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Preguntas" class="control-label"></label>
+                        <input asp-for="Preguntas" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Equipos" class="control-label"></label>
+                        <input asp-for="Equipos" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Confederado" class="control-label"></label>
+                        <input asp-for="Confederado" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Definiciones" class="control-label"></label>
+                        <input asp-for="Definiciones" class="form-control" cols="30" rows="10" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Herramientas" class="control-label"></label>
+                        <input asp-for="Herramientas" class="form-control" cols="30" rows="10" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="MonitorDesfibrilador" class="control-label"></label>
+                        <input asp-for="MonitorDesfibrilador" class="form-control" cols="30" rows="10" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Enfoque" class="control-label"></label>
+                        <input asp-for="Enfoque" class="form-control" cols="30" rows="10" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Control" class="control-label"></label>
+                        <input asp-for="Control" class="form-control" cols="30" rows="10" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Bibliografía" class="control-label"></label>
+                        <input asp-for="Bibliografía" class="form-control" cols="30" rows="10" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="PuntosDebriefing" class="control-label"></label>
+                        <input asp-for="PuntosDebriefing" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Aprendizaje" class="control-label"></label>
+                        <input asp-for="Aprendizaje" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Referencias" class="control-label"></label>
+                        <input asp-for="Referencias" class="form-control" />
+                </div>
+
+                <div class="form-group formM">
+                        <label asp-for="Escenarios" class="control-label"></label>
+                        <input asp-for="Escenarios" class="form-control" cols="30" rows="10" />
+                </div>
 
 
-        <h1></h1>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Actualizar</button> 
+                <h1></h1>
+                <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+        </form>
+        <h1>@ViewData["Message"]</h1>
+        <div>
+                <a class="btn btn-primary" asp-action="Index2">Regresar a la lista</a>
         </div>
-    </form>
-    <h1>@ViewData["Message"]</h1>
-    <div>
-        <a 
-       class="btn btn-primary" asp-action="Index2">Regresar a la lista</a>
-    </div>
 </div>
