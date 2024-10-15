@@ -56,7 +56,7 @@ namespace FORMULARIOCENSI.Controllers
             return View(objFormulario);
         }
         [HttpPost]
-        public IActionResult Edit(int id,[Bind("Id,Titulo,Sinopsis,Autores,HistoriaClinica,NotaIngreso,Ordenes,Objetivos,Desempeño,Preguntas,Equipos,Guión,Confederado,NotasFacilitador,PuntosDebriefing,Aprendizaje,Referencias,Escenarios")] Formulario objFormulario)
+        public IActionResult Edit(int id,[Bind("Id,Titulo,DatosPaciente,Sinopsis,Base,Estado1,Estado2,Estado3,Estado4,Estado5,Estado6,Estado7,Autores,HistoriaClinica,SituaciónTriaje,NotaHospitalizacion,SignosVitales,EstadoGeneral,Cardiovascular,Cuello,Respiratorio,Abdomen,GenitoUrinario,AparatoLocomotor,Piel,Neurologico,Endovenoso,Laboratorios,Recomendaciones,Ordenes,CompetenciaGeneral,Objetivos,Identificar,Distinguir,Discriminar,Actuar,Usar,Aplicar,MedidasEsenciales,Baseline,Estado1Desem,Estado2Desem,Estado3Desem,Estado4Desem,Estado5Desem,Estado6Desem,Estado7Desem,Estado8Desem,Preguntas,Equipos,Confederado,Definiciones,Herramientas,MonitorDesfibrilador,Enfoque,Control,Bibliografía,PuntosDebriefing,Aprendizaje,Referencias,Escenarios")] Formulario objFormulario)
         {
              _context.Update(objFormulario);
              _context.SaveChanges();
