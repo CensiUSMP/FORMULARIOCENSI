@@ -973,3 +973,5 @@ C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\ref
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.pdb
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.genruntimeconfig.cache
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\ref\FORMULARIOCENSI.dll
+C:\Users\CENSI USMP\Desktop\DOCUMENTOS USMP\FORMULARIOCENSI\bin\Debug\net8.0\DinkToPdf.dll
+C:\Users\CENSI USMP\Desktop\DOCUMENTOS USMP\FORMULARIOCENSI\bin\Debug\net8.0\libwkhtmltox.dll
