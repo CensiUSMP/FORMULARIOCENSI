@@ -157,52 +157,169 @@ var logoUrl = $"{baseUrl}/images/logo.jpeg";
     <meta charset='utf-8' />
     <title>Formulario - {formulario.Titulo}</title>
     <style>
-        body {{ font-family: Arial, sans-serif; line-height: 1.5; }}
-        header {{ text-align: center; }}
-        h1 {{ font-size: 1.5em; }}
-        p {{ margin: 10px 0; }}
-        hr {{ border: 1px solid #000; }}
-        section {{ margin-bottom: 20px; }}
+        body {{ font-family: Arial, sans-serif; }}
+        table {{ width: 100%; border-collapse: collapse; }}
+        td, th {{ padding: 10px; border: 1px solid #000; }}
+        h1 {{ font-size: 1.2em; margin: 0; }}
+        .logo {{ text-align: left; }}
+        .logo img {{ width: 120px; }}
+        .info-table {{ text-align: right; font-size: 0.9em; }}
+        .center-text {{ text-align: center; }}
+        .highlight {{ color: #007bff; text-decoration: underline; }}
     </style>
 </head>
 <body>
-    <header>
-        <img src='{logoUrl}' alt='Logo' height='50' width='320'/>
-
-        <h1>Formulario de desarrollo de ECS</h1>
-        <p>Código: FRT_002</p>
-        <p>Versión: 1.0</p>
-        <p>Fecha: febrero 2024</p>
-        <p>Página: 1</p>
-    </header>
+    <table>
+        <tr>
+            <td class='logo'>
+                <img src='{logoUrl}' alt='USMP Logo'>
+            </td>
+            <td class='center-text'>
+                <h1>Formulario de desarrollo de ECS<br />FRT_002</h1>
+                <p><a href='#' class='highlight'>{formulario.Titulo}</a></p>
+            </td>
+            <td class='info-table'>
+                <p><strong>Código:</strong> FRT_002</p>
+                <p><strong>Versión:</strong> 1.0</p>
+                <p><strong>Fecha:</strong> febrero 2024</p>
+                <p><strong>Página:</strong> 1</p>
+            </td>
+        </tr>
+    </table>
 
     <hr />
 
     <section>
         <h2>Descripción del paciente:</h2>
-        <p>Datos del paciente:<br /> {formulario.DatosPaciente.Replace(Environment.NewLine, "<br />")}</p>
-    </section>
-
-    <section>
-        <h2>Examen físico:</h2>
-        <p>ARGC: {formulario.DatosPaciente.Replace(Environment.NewLine, "<br />")}</p>
-        <p>BEH: {formulario.Sinopsis.Replace(Environment.NewLine, "<br />")}</p>
-        <p>BEN: {formulario.Base.Replace(Environment.NewLine, "<br />")}</p>
-    </section>
-
-    <section>
-        <h2>Diagnóstico:</h2>
+        <p>{formulario.DatosPaciente.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Resumen del caso</h1>
+        <h2>Sinopsis</h2>
+        <p>{formulario.Sinopsis.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>En estadio paciente Base:</h2>
+        <p>{formulario.Base.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>En el Estado 1: Inicio de la atención</h2>
+        <p>{formulario.Estado1.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>En el Estado 2: TV estable</h2>
+        <p>{formulario.Estado2.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 3: Amiodarona o lidocaína administrada</h2>
+        <p>{formulario.Estado3.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 4: No mejoría de la TV</h2>
+        <p>{formulario.Estado4.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 5: Paciente recuperado</h2>
+        <p>{formulario.Estado5.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 6: No mejoría de la TV 2da dosis de amiodarona</h2>
+        <p>{formulario.Estado6.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 7: Paciente recuperado luego de cardioversión eléctrica sincronizada</h2>
+        <p>{formulario.Estado7.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Autores</h1>
+        <p>{formulario.Autores.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Antecedentes del Paciente</h1>
+        <h2>Historia clínica del paciente</h2>
         <p>{formulario.HistoriaClinica.Replace(Environment.NewLine, "<br />")}</p>
-    </section>
-
-    <section>
-        <h2>Estado de atención:</h2>
+        <h2>Nota de ingreso</h2>
+        <h2>Situación en triaje:</h2>
+        <p>{formulario.SituaciónTriaje.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Nota de hospitalización:</h2>
+        <p>{formulario.NotaHospitalizacion.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>A la evaluación:</h2>
+        <h2>Signos vitales:</h2>
+        <p>{formulario.SignosVitales.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado general:</h2>
         <p>{formulario.EstadoGeneral.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Cardiovascular</h2>
+        <p>{formulario.Cardiovascular.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Cuello:</h2>
+        <p>{formulario.Cuello.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Respiratorio:</h2>
+        <p>{formulario.Respiratorio.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Abdomen:</h2>
+        <p>{formulario.Abdomen.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Genito-Urinario:</h2>
+        <p>{formulario.GenitoUrinario.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Aparato Locomotor:</h2>
+        <p>{formulario.AparatoLocomotor.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Piel:</h2>
+        <p>{formulario.Piel.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Neurológico:</h2>
+        <p>{formulario.Neurologico.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Endovenoso</h2>
+        <p>{formulario.Endovenoso.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Laboratorios:</h2>
+        <p>{formulario.Laboratorios.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Recomendaciones:</h2>
+        <p>{formulario.Recomendaciones.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Órdenes</h1>
+        <h2>Orden inicial del médico tratante:</h2>
+        <p>{formulario.Ordenes.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Preparación</h1>
+        <h1>Objetivos del aprendizaje</h1>
+        <h2>Competencia General:</h2>
+        <p>{formulario.CompetenciaGeneral.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Objetivos:</h2>
+        <p>{formulario.Objetivos.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Identificar y diagnosticar</h2>
+        <p>{formulario.Identificar.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Distinguir diagnósticos diferenciales</h2>
+        <p>{formulario.Distinguir.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Discriminar y contrastar</h2>
+        <p>{formulario.Discriminar.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Actuar</h2>
+        <p>{formulario.Actuar.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Usar</h2>
+        <p>{formulario.Usar.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Aplicar</h2>
+        <p>{formulario.Aplicar.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Desempeño como medida del aprendizaje</h1>
+        <h2>Medidas esenciales de rendimiento del escenario</h2>
+        <p>{formulario.MedidasEsenciales.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Base line: Evaluación inicial</h2>
+        <p>{formulario.Baseline.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 1: Inicio de atención</h2>
+        <p>{formulario.Estado1Desem.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 2: TV estable</h2>
+        <p>{formulario.Estado2Desem.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 3: Amiodarona administrada</h2>
+        <p>{formulario.Estado3Desem.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 4: No Mejoría de la TV</h2>
+        <p>{formulario.Estado4Desem.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 5: Paciente recuperado</h2>
+        <p>{formulario.Estado5Desem.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 6: No mejoría de la TV 2da dosis de infusión de amiodarona</h2>
+        <p>{formulario.Estado6Desem.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 7: Paciente recuperado de 2da dosis de infusión de amiodarona</h2>
+        <p>{formulario.Estado7Desem.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Estado 8: Paciente que no recibe terapia</h2>
+        <p>{formulario.Estado8Desem.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Preguntas de preparación</h1>
+        <p>{formulario.Preguntas.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Equipos y suministros</h2>
+        <p>{formulario.Equipos.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Confederados</h2>
+        <p>{formulario.Confederado.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Notas</h1>
+        <h1>Notas del facilitador</h1>
+        <h2>Definiciones</h2>
+        <p>{formulario.Definiciones.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Herramientas</h2>
+        <p>{formulario.Herramientas.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Motor-desfibrilador</h2>
+        <p>{formulario.MonitorDesfibrilador.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Enfoque de caso: recepción</h2>
+        <p>{formulario.Enfoque.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Control post terapia:</h2>
+        <p>{formulario.Control.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Bibliografía</h2>
+        <p>{formulario.Bibliografía.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Puntos de debriefing</h1>
+        <h2>El facilitador debe empezar dando una introducción sobre el proceso de debriefing</h2>
+        <p>{formulario.PuntosDebriefing.Replace(Environment.NewLine, "<br />")}</p>
+        <h1>Aprendizaje - preguntas y respuestas</h1>
+        <p>{formulario.Aprendizaje.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Referencias bibliográficas</h2>
+        <p>{formulario.Referencias.Replace(Environment.NewLine, "<br />")}</p>
+        <h2>Escenarios precargados</h2>
+        <p>{formulario.Escenarios.Replace(Environment.NewLine, "<br />")}</p>
     </section>
-
-    <footer>
-        <p>Confidencial - Solo para uso médico</p>
-    </footer>
 </body>
 </html>";
 

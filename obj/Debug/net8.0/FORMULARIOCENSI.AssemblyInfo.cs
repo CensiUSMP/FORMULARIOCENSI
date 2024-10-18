@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FORMULARIOCENSI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23391ca66989afd6e32207d140f2504b2c48e46f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d07a4f3eb304f46afd5565f22597c47fc4f07a7")]
 [assembly: System.Reflection.AssemblyProductAttribute("FORMULARIOCENSI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FORMULARIOCENSI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
