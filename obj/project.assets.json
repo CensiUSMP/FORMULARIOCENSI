@@ -13440,24 +13440,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CENSI USMP\\.nuget\\packages\\": {}
+    "C:\\Users\\LENOVO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CENSI USMP\\Desktop\\DOCUMENTOS USMP\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
+      "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
       "projectName": "FORMULARIOCENSI",
-      "projectPath": "C:\\Users\\CENSI USMP\\Desktop\\DOCUMENTOS USMP\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
-      "packagesPath": "C:\\Users\\CENSI USMP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CENSI USMP\\Desktop\\DOCUMENTOS USMP\\FORMULARIOCENSI\\obj\\",
+      "projectPath": "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
+      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\CENSI USMP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -13547,7 +13549,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -13556,7 +13558,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "FORMULARIOCENSI depende de libwkhtmltox-64 (>= 0.12.6.1), pero no se encontró libwkhtmltox-64 0.12.6.1. Se resolvió una mejor coincidencia aproximada de libwkhtmltox-64 1.0.0.",
+      "message": "FORMULARIOCENSI depends on libwkhtmltox-64 (>= 0.12.6.1) but libwkhtmltox-64 0.12.6.1 was not found. An approximate best match of libwkhtmltox-64 1.0.0 was resolved.",
       "libraryId": "libwkhtmltox-64",
       "targetGraphs": [
         "net8.0"
@@ -13566,7 +13568,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"libwkhtmltox-64 1.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'libwkhtmltox-64 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
       "libraryId": "libwkhtmltox-64",
       "targetGraphs": [
         "net8.0"
