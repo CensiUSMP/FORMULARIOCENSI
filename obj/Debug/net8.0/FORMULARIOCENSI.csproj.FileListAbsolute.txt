@@ -696,6 +696,16 @@ C:\Users\CENSI USMP\Desktop\DOCUMENTOS USMP\FormularioCensi\obj\Debug\net8.0\FOR
 C:\Users\CENSI USMP\Desktop\DOCUMENTOS USMP\FormularioCensi\obj\Debug\net8.0\ref\FORMULARIOCENSI.dll
 C:\Users\CENSI USMP\Desktop\DOCUMENTOS USMP\FORMULARIOCENSI\bin\Debug\net8.0\DinkToPdf.dll
 C:\Users\CENSI USMP\Desktop\DOCUMENTOS USMP\FORMULARIOCENSI\bin\Debug\net8.0\libwkhtmltox.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.AssemblyInfo.cs
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.RazorAssemblyInfo.cache
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.RazorAssemblyInfo.cs
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.sourcelink.json
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\appsettings.json
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\FORMULARIOCENSI.staticwebassets.runtime.json
@@ -707,7 +717,6 @@ C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\FOR
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\FORMULARIOCENSI.pdb
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\Azure.Identity.dll
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\DinkToPdf.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\Humanizer.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\itext.barcodes.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\itext.bouncy-castle-connector.dll
@@ -785,6 +794,7 @@ C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\NuG
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\NuGet.ProjectModel.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\NuGet.Protocol.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\NuGet.Versioning.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\QuestPDF.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\System.Composition.Convention.dll
@@ -950,16 +960,6 @@ C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\run
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.csproj.AssemblyReference.cache
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.AssemblyInfoInputs.cache
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.AssemblyInfo.cs
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.csproj.CoreCompileInputs.cache
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.RazorAssemblyInfo.cache
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.RazorAssemblyInfo.cs
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.sourcelink.json
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\staticwebassets\msbuild.FORMULARIOCENSI.Microsoft.AspNetCore.StaticWebAssets.props
@@ -976,4 +976,14 @@ C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\ref
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.pdb
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\FORMULARIOCENSI.genruntimeconfig.cache
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\obj\Debug\net8.0\ref\FORMULARIOCENSI.dll
-C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\lib\libwkhtmltox.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\HarfBuzzSharp.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\SkiaSharp.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\SkiaSharp.HarfBuzz.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\osx\native\libHarfBuzzSharp.dylib
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win-x64\native\libHarfBuzzSharp.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win-x86\native\libHarfBuzzSharp.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win-x86\native\libSkiaSharp.dll

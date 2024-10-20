@@ -45,10 +45,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "DinkToPdf": {
-              "target": "Package",
-              "version": "[1.0.8, )"
-            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
@@ -79,13 +75,13 @@
               "target": "Package",
               "version": "[8.0.4, )"
             },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2023.1.0, )"
+            },
             "itext7": {
               "target": "Package",
               "version": "[8.0.5, )"
-            },
-            "wkhtmltopdf.x64": {
-              "target": "Package",
-              "version": "[0.12.6, )"
             }
           },
           "imports": [
