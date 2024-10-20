@@ -9,7 +9,6 @@
       "FORMULARIOCENSI/1.0.0": {
         "dependencies": {
           "DinkToPdf": "1.0.8",
-          "libwkhtmltox-64": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.4",
           "Microsoft.AspNetCore.Identity.UI": "8.0.4",
@@ -695,13 +694,6 @@
       "itext7/8.0.5": {
         "dependencies": {
           "itext": "8.0.5"
-        }
-      },
-      "libwkhtmltox-64/1.0.0": {
-        "runtime": {
-          "lib/libwkhtmltox.dll": {
-            "fileVersion": "0.12.4.0"
-          }
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/8.0.4": {
@@ -3250,13 +3242,6 @@
       "sha512": "sha512-/1btEFYY+ncIR7j/g+pr26PX8Nbly8pbdDWfSHQq9E/rbxhz0ylkOLVpXNEvoaV545q508P8hociHaRiRG7bwg==",
       "path": "itext7/8.0.5",
       "hashPath": "itext7.8.0.5.nupkg.sha512"
-    },
-    "libwkhtmltox-64/1.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-aM2JorirGonmQG3Dy9gIQaub7ajZlZdQ2dX4ZC7D/2Cb8BYJg6mfCLyMcIpe3eaksUG6/9TJ3hxiHnzx6G+ISg==",
-      "path": "libwkhtmltox-64/1.0.0",
-      "hashPath": "libwkhtmltox-64.1.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/8.0.4": {
       "type": "package",
