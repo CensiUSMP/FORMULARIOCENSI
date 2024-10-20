@@ -24,6 +24,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
     <PackageReference Include="QuestPDF" Version="2023.1.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.3" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.3" />
   </ItemGroup>
 
 </Project>

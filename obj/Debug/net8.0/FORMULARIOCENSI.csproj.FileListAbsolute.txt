@@ -987,3 +987,7 @@ C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\run
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win-arm64\native\libSkiaSharp.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win-x64\native\libSkiaSharp.dll
 C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\win-x86\native\libSkiaSharp.dll
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\linux-arm\native\libSkiaSharp.so
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\linux-arm64\native\libSkiaSharp.so
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libSkiaSharp.so
+C:\Users\LENOVO\Desktop\Proyecto formulario\FORMULARIOCENSI\bin\Debug\net8.0\runtimes\linux-x64\native\libSkiaSharp.so

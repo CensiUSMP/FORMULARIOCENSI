@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AdFGxZAY7Xmhh46+p+SyDVJcgj6L05lvoeClx2ojAGCRrn5OlycpGUs8rq/qv+7Rw3q/44rJoYzmfe+Oo5PMoA==",
+  "dgSpecHash": "FW+P+IHS92I6Jqm3Huf4PMlsNyCzw7lTOm3aWTb9JEIpnsjqY/5zC9isuTPWKcm2/CShlaVT0Dl4Vamy3Hmprg==",
   "success": true,
   "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
   "expectedPackageFiles": [
@@ -161,6 +161,7 @@
     "C:\\Users\\LENOVO\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\skiasharp\\2.88.3\\skiasharp.2.88.3.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.3\\skiasharp.harfbuzz.2.88.3.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.88.3\\skiasharp.nativeassets.linux.nodependencies.2.88.3.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.3\\skiasharp.nativeassets.macos.2.88.3.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.3\\skiasharp.nativeassets.win32.2.88.3.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",
@@ -247,6 +248,16 @@
       "warningLevel": 1,
       "message": "FORMULARIOCENSI depende de QuestPDF (>= 2023.1.0), pero no se encontró QuestPDF 2023.1.0. Se resolvió una mejor coincidencia aproximada de QuestPDF 2023.4.0.",
       "libraryId": "QuestPDF",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'SkiaSharp' 2.88.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-j7hp-h8jx-5ppr",
+      "libraryId": "SkiaSharp",
       "targetGraphs": [
         "net8.0"
       ]

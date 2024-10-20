@@ -79,6 +79,14 @@
               "target": "Package",
               "version": "[2023.1.0, )"
             },
+            "SkiaSharp": {
+              "target": "Package",
+              "version": "[2.88.3, )"
+            },
+            "SkiaSharp.NativeAssets.Linux.NoDependencies": {
+              "target": "Package",
+              "version": "[2.88.3, )"
+            },
             "itext7": {
               "target": "Package",
               "version": "[8.0.5, )"

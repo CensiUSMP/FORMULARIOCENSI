@@ -2696,6 +2696,36 @@
           }
         }
       },
+      "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.3": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.88.3"
+        },
+        "compile": {
+          "lib/net5.0/_._": {}
+        },
+        "runtime": {
+          "lib/net5.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          },
+          "runtimes/linux-arm64/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-musl-x64/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "linux-musl-x64"
+          },
+          "runtimes/linux-x64/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          }
+        }
+      },
       "SkiaSharp.NativeAssets.macOS/2.88.3": {
         "type": "package",
         "compile": {
@@ -8731,6 +8761,29 @@
         "skiasharp.harfbuzz.nuspec"
       ]
     },
+    "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.3": {
+      "sha512": "jBDBOw1Xwqi+1fRRDLNhBwiREvYMDM1N+A2FvjJ7F1Bg37PFrQIKOfYpf7RKD6vvMzS2oTvSQMC7RN1rfKbMrg==",
+      "type": "package",
+      "path": "skiasharp.nativeassets.linux.nodependencies/2.88.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/net462/SkiaSharp.NativeAssets.Linux.NoDependencies.targets",
+        "buildTransitive/net462/SkiaSharp.NativeAssets.Linux.NoDependencies.targets",
+        "lib/net462/_._",
+        "lib/net5.0/_._",
+        "lib/netcoreapp3.1/_._",
+        "lib/netstandard1.3/_._",
+        "runtimes/linux-arm/native/libSkiaSharp.so",
+        "runtimes/linux-arm64/native/libSkiaSharp.so",
+        "runtimes/linux-musl-x64/native/libSkiaSharp.so",
+        "runtimes/linux-x64/native/libSkiaSharp.so",
+        "skiasharp.nativeassets.linux.nodependencies.2.88.3.nupkg.sha512",
+        "skiasharp.nativeassets.linux.nodependencies.nuspec"
+      ]
+    },
     "SkiaSharp.NativeAssets.macOS/2.88.3": {
       "sha512": "CEbWAXMGFkPV3S1snBKK7jEG3+xud/9kmSAhu0BEUKKtlMdxx+Qal0U9bntQREM9QpqP5xLWZooodi8IlV8MEg==",
       "type": "package",
@@ -12277,6 +12330,8 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.4",
       "QuestPDF >= 2023.1.0",
+      "SkiaSharp >= 2.88.3",
+      "SkiaSharp.NativeAssets.Linux.NoDependencies >= 2.88.3",
       "itext7 >= 8.0.5"
     ]
   },
@@ -12358,6 +12413,14 @@
             "target": "Package",
             "version": "[2023.1.0, )"
           },
+          "SkiaSharp": {
+            "target": "Package",
+            "version": "[2.88.3, )"
+          },
+          "SkiaSharp.NativeAssets.Linux.NoDependencies": {
+            "target": "Package",
+            "version": "[2.88.3, )"
+          },
           "itext7": {
             "target": "Package",
             "version": "[8.0.5, )"
@@ -12393,6 +12456,16 @@
       "warningLevel": 1,
       "message": "FORMULARIOCENSI depende de QuestPDF (>= 2023.1.0), pero no se encontró QuestPDF 2023.1.0. Se resolvió una mejor coincidencia aproximada de QuestPDF 2023.4.0.",
       "libraryId": "QuestPDF",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'SkiaSharp' 2.88.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-j7hp-h8jx-5ppr",
+      "libraryId": "SkiaSharp",
       "targetGraphs": [
         "net8.0"
       ]
