@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6V3oypTxhY1tmY3kD/ncZbjISWyy0JBXR9daztPybaox21ziQzvsEzEDkrVabKEVFGbj0K7hKhLpVmisprQ0NQ==",
+  "dgSpecHash": "YHtstMQEnv4kyaU8Gck+UCZckgi5yWmSgr8KK/yR1wVb2OQDvnlF+CLefB6dQr/KAevTQbyj5J78F1b/UECeYg==",
   "success": true,
   "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
   "expectedPackageFiles": [
@@ -60,7 +60,6 @@
     "C:\\Users\\LENOVO\\.nuget\\packages\\itext\\8.0.5\\itext.8.0.5.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\itext.commons\\8.0.5\\itext.commons.8.0.5.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\itext7\\8.0.5\\itext7.8.0.5.nupkg.sha512",
-    "C:\\Users\\LENOVO\\.nuget\\packages\\libwkhtmltox-64\\1.0.0\\libwkhtmltox-64.1.0.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.4\\microsoft.aspnetcore.cryptography.internal.8.0.4.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.4\\microsoft.aspnetcore.cryptography.keyderivation.8.0.4.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\8.0.4\\microsoft.aspnetcore.diagnostics.entityframeworkcore.8.0.4.nupkg.sha512",
@@ -258,26 +257,5 @@
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\wkhtmltopdf.x64\\0.12.6\\wkhtmltopdf.x64.0.12.6.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "FORMULARIOCENSI depende de libwkhtmltox-64 (>= 0.12.6.1), pero no se encontró libwkhtmltox-64 0.12.6.1. Se resolvió una mejor coincidencia aproximada de libwkhtmltox-64 1.0.0.",
-      "libraryId": "libwkhtmltox-64",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"libwkhtmltox-64 1.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "libraryId": "libwkhtmltox-64",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

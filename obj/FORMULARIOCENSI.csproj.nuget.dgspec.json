@@ -49,10 +49,6 @@
               "target": "Package",
               "version": "[1.0.8, )"
             },
-            "LibWkHtmlToX-64": {
-              "target": "Package",
-              "version": "[0.12.6.1, )"
-            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
