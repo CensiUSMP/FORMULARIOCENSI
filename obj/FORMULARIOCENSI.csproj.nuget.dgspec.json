@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj": {}
+    "C:\\Users\\CENSI USMP\\Desktop\\FORMULARIOCENSI\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj": {
+    "C:\\Users\\CENSI USMP\\Desktop\\FORMULARIOCENSI\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
+        "projectUniqueName": "C:\\Users\\CENSI USMP\\Desktop\\FORMULARIOCENSI\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
         "projectName": "FORMULARIOCENSI",
-        "projectPath": "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\Desktop\\Proyecto formulario\\FORMULARIOCENSI\\obj\\",
+        "projectPath": "C:\\Users\\CENSI USMP\\Desktop\\FORMULARIOCENSI\\FORMULARIOCENSI\\FORMULARIOCENSI.csproj",
+        "packagesPath": "C:\\Users\\CENSI USMP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CENSI USMP\\Desktop\\FORMULARIOCENSI\\FORMULARIOCENSI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\CENSI USMP\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,6 +43,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DinkToPdf": {
+              "target": "Package",
+              "version": "[1.0.8, )"
+            },
+            "LibWkHtmlToX-64": {
+              "target": "Package",
+              "version": "[0.12.6.1, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
@@ -75,21 +81,17 @@
               "target": "Package",
               "version": "[8.0.4, )"
             },
-            "QuestPDF": {
+            "RazorEngine": {
               "target": "Package",
-              "version": "[2023.1.0, )"
-            },
-            "SkiaSharp": {
-              "target": "Package",
-              "version": "[2.88.3, )"
-            },
-            "SkiaSharp.NativeAssets.Linux.NoDependencies": {
-              "target": "Package",
-              "version": "[2.88.3, )"
+              "version": "[3.10.0, )"
             },
             "itext7": {
               "target": "Package",
               "version": "[8.0.5, )"
+            },
+            "wkhtmltopdf.x64": {
+              "target": "Package",
+              "version": "[0.12.6, )"
             }
           },
           "imports": [
@@ -111,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

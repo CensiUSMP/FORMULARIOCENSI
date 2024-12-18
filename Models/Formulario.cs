@@ -9,186 +9,148 @@ namespace FORMULARIOCENSI.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int Id { get; set;}
+        public int Id { get; set; }
 
         [Column("titulo")]
-        public string Titulo { get; set;}
-
-        [Column("DatosPaciente")]
-        public string DatosPaciente { get; set;}
+        public string? Titulo { get; set; }
 
         [Column("sinopsis")]
-        public string Sinopsis { get; set;}
+        public string? Sinopsis { get; set; }
 
-        [Column("base")]
-        public string Base { get; set;}
 
-        [Column("estado1")]
-        public string Estado1 { get; set;}
+        public List<Estados>? Estados { get; set; }
 
-        [Column("estado2")]
-        public string Estado2 { get; set;}
+        public List<Estadosa>? Estadosa { get; set; }
 
-        [Column("estado3")]
-        public string Estado3 { get; set;}
-
-        [Column("estado4")]
-        public string Estado4 { get; set;}
-
-        [Column("estado5")]
-        public string Estado5 { get; set;}
-
-        [Column("estado6")]
-        public string Estado6 { get; set;}
-
-        [Column("estado7")]
-        public string Estado7 { get; set;}
+        [Column("Imagen")]
+        public Byte[]? Imagen { get; set; }
+        [Column("imagename")]
+        public String? ImagenName { get; set; }
 
         [Column("autores")]
-        public string Autores { get; set;}
+        public string? Autores { get; set; }
 
-        [Column("historia_clinica")]
-        public string HistoriaClinica { get; set;}
+        [Column("historial_medico")]
+        public string? Historial_medico { get; set; }
 
-        [Column("situacion_triaje")]
-        public string SituaciónTriaje { get; set;}
+        [Column("alergias")]
+        public string? Alergias { get; set; }
 
-        [Column("nota_hospitalizacion")]
-        public string NotaHospitalizacion { get; set;}
+        [Column("medicamentos")]
+        public string? Medicamentos { get; set; }
+
+        [Column("historial_familiar")]
+        public string? Historia_familiar { get; set; }
+
+        [Column("situacion")]
+        public string? Situacion { get; set; }
+
+        [Column("nota_de_hospitalizacion")]
+        public string? Nota_de_hospitalizacion { get; set; }
 
         [Column("signos_vitales")]
-        public string SignosVitales { get; set;}
+        public string? Signos_vitales { get; set; }
 
         [Column("estado_general")]
-        public string EstadoGeneral { get; set;}
-
-        [Column("cardiovascular")]
-        public string Cardiovascular { get; set;}
-
-        [Column("cuello")]
-        public string Cuello { get; set;}
-
-        [Column("respiratorio")]
-        public string Respiratorio { get; set;}
-
-        [Column("abdomen")]
-        public string Abdomen { get; set;}
-
-        [Column("genito_urinario")]
-        public string GenitoUrinario { get; set;}
-
-        [Column("aparato_locomotor")]
-        public string AparatoLocomotor { get; set;}
+        public string? Estado_general { get; set; }
 
         [Column("piel")]
-        public string Piel { get; set;}
+        public string? Piel { get; set; }
 
-        [Column("neurologico")]
-        public string Neurologico { get; set;}
+        [Column("torax")]
+        public string? Torax { get; set; }
 
-        [Column("endovenoso")]
-        public string Endovenoso { get; set;}
+        [Column("cv")]
+        public string? CV { get; set; }
 
-        [Column("laboratorios")]
-        public string Laboratorios { get; set;}
+        [Column("abdomen")]
+        public string? Abdomen { get; set; }
 
-        [Column("recomendaciones")]
-        public string Recomendaciones { get; set;}
+        [Column("laboratorio")]
+        public string? Laboratorio { get; set; }
 
-        [Column("ordenes")]
-        public string Ordenes { get; set;}
+        [Column("Imagena")]
+        public Byte[]? Imagena { get; set; }
 
-        [Column("competencia_general")]
-        public string CompetenciaGeneral { get; set;}
+        [Column("imagenamea")]
+        public String? ImagenNamea { get; set; }
 
-        [Column("objetivos")]
-        public string Objetivos { get; set;}
-
-        [Column("identificar")]
-        public string Identificar { get; set;}
+        [Column("orden_inicial")]
+        public string? Orden_inicial { get; set; }
 
         [Column("distinguir")]
-        public string Distinguir { get; set;}
+        public string? Distinguir { get; set; }
 
-        [Column("discriminar")]
-        public string Discriminar { get; set;}
+        [Column("indicar")]
+        public string? Indicar { get; set; }
 
-        [Column("actuar")]
-        public string Actuar { get; set;}
+        [Column("analizar")]
+        public string? Analizar { get; set; }
 
-        [Column("usar")]
-        public string Usar { get; set;}
+        [Column("evaluación")]
+        public string? Evaluación { get; set; }
 
         [Column("aplicar")]
-        public string Aplicar { get; set;}
+        public string? Aplicar { get; set; }
 
-        [Column("Medidas_esenciales")]
-        public string MedidasEsenciales { get; set;}
+        [Column("medidas_esenciales")]
+        public string? Medidas_esenciales { get; set; }
 
         [Column("baseline")]
-        public string Baseline { get; set;}
+        public string? Baseline { get; set; }
 
-        [Column("estado1_desem")]
-        public string Estado1Desem { get; set;}
+        [Column("preguntas_de_preparacion")]
+        public string? Preguntas_de_preparacion { get; set; }
 
-        [Column("estado2_desem")]
-        public string Estado2Desem { get; set;}
+        [Column("equipos_de_suministro")]
+        public string? Equipos_de_suministro { get; set; }
 
-        [Column("estado3_desem")]
-        public string Estado3Desem { get; set;}
+        public List<Dialogo>? Dialogo { get; set; }
 
-        [Column("estado4_desem")]
-        public string Estado4Desem { get; set;}
-
-        [Column("estado5_desem")]
-        public string Estado5Desem { get; set;}
-
-        [Column("estado6_desem")]
-        public string Estado6Desem { get; set;}
-
-        [Column("estado7_desem")]
-        public string Estado7Desem { get; set;}
-
-        [Column("estado8_desem")]
-        public string Estado8Desem { get; set;}
-
-        [Column("preguntas")]
-        public string Preguntas { get; set;}
-
-        [Column("equipos")]
-        public string Equipos { get; set;}
-        
         [Column("confederado")]
-        public string Confederado { get; set;}
+        public string? Confederado { get; set; }
 
-        [Column("definiciones")]
-        public string Definiciones { get; set;}
+        [Column("archivo")]
+        public Byte[]? Archivo { get; set; }
 
-        [Column("herramientas")]
-        public string Herramientas { get; set;}
+        [Column("archivo_name")]
+        public String? ArchivoName { get; set; }
 
-        [Column("monitor_desfibrilador")]
-        public string MonitorDesfibrilador { get; set;}
+        public string? ArchivoTextoExtraido { get; set; }
 
-        [Column("enfoque")]
-        public string Enfoque { get; set;}
+        [Column("introduccion")]
+        public string? Introduccion { get; set; }
 
-        [Column("control")]
-        public string Control { get; set;}
+        [Column("emociones")]
+        public string? Emociones { get; set; }
 
-        [Column("bibliografía")]
-        public string Bibliografía { get; set;}
+        [Column("descripcion")]
+        public string? Descripcion { get; set; }
 
-        [Column("puntos_debriefing")]
-        public string PuntosDebriefing { get; set;}
+        [Column("analisis")]
+        public string? Analisis { get; set; }
 
-        [Column("aprendizaje")]
-        public string Aprendizaje { get; set;}
+        [Column("sintesis")]
+        public string? Sintesis { get; set; }
 
-        [Column("referencias")]
-        public string Referencias { get; set;}
+        [Column("preguntasdd")]
+        public string? PreguntasDD { get; set; }
 
-        [Column("escenarios")]
-        public string Escenarios { get; set;}
+        [Column("baselineapren")]
+        public string? BaselineApren { get; set; }
+
+        [Column("referenciasb")]
+        public string? ReferenciasB { get; set; }
+
+        [Column("escenariosp")]
+        public string? EscenariosP { get; set; }
+
+        public List<Status>? Status { get; set; }
+
+        [Column("Imagenc")]
+        public Byte[]? Imagenc { get; set; }
+
+        [Column("imagenamec")]
+        public String? ImagenNamec { get; set; }
     }
 }

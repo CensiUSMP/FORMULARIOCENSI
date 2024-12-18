@@ -14,9 +14,13 @@
                 <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Casos registrados</a>
             </li>
         }
-        <li class="nav-item">
+        @if (roles.Contains("User") || roles.Contains("Operador"))
+        {
+            <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Formulario" asp-action="Index2">Registrar caso</a>
         </li>
+        }
+        
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello
                 @User.Identity?.Name!</a>
