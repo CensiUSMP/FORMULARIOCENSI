@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FORMULARIOCENSI.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241218185840_InitialMigration")]
+    [Migration("20250106201628_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -244,6 +244,10 @@ namespace FORMULARIOCENSI.Data.Migrations
                     b.Property<string>("Medidas_esenciales")
                         .HasColumnType("text")
                         .HasColumnName("medidas_esenciales");
+
+                    b.Property<string>("Neurologico")
+                        .HasColumnType("text")
+                        .HasColumnName("neurologico");
 
                     b.Property<string>("Nota_de_hospitalizacion")
                         .HasColumnType("text")

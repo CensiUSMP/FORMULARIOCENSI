@@ -74,6 +74,7 @@ namespace FORMULARIOCENSI.Data.Migrations
                     torax = table.Column<string>(type: "text", nullable: true),
                     cv = table.Column<string>(type: "text", nullable: true),
                     abdomen = table.Column<string>(type: "text", nullable: true),
+                    neurologico = table.Column<string>(type: "text", nullable: true),
                     laboratorio = table.Column<string>(type: "text", nullable: true),
                     Imagena = table.Column<byte[]>(type: "bytea", nullable: true),
                     imagenamea = table.Column<string>(type: "text", nullable: true),

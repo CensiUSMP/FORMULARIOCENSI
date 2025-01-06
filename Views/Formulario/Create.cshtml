@@ -9,7 +9,7 @@
 
 <hr />
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <form asp-action="Create" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -19,47 +19,48 @@
                 <span asp-validation-for="Titulo" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Sinopsis" class="control-label"></label>
-                <textarea asp-for="Sinopsis" class="form-control"></textarea>
+                <textarea asp-for="Sinopsis" class="form-control" cols="30" rows="10"></textarea>
                 <span asp-validation-for="Sinopsis" class="text-danger"></span>
             </div>
 
             <h3>Estados</h3>
-            <div id="estadosContainer">
+            <div id="estadosContainer" style="margin-bottom: 20px;">
                 <div class="form-group">
-                    <label for="Estados_0_Nombre">Número</label>
-                    <input type="text" name="Estados[0].Numero" class="form-control"
-                        placeholder="Ingrese el número del estado" />
+                    <div class="col-md-1">
+                        <label for="Estados_0_Nombre">Número</label>
+                        <input type="text" name="Estados[0].Numero" class="form-control" placeholder="Ingrese N°" />
+                    </div>
 
                     <label for="Estados_0_Nombre">Nombre</label>
                     <input type="text" name="Estados[0].Nombre" class="form-control"
                         placeholder="Ingrese el nombre del estado" />
 
                     <label for="Estados_0_Descripcion">Descripción del Estado</label>
-                    <input type="text" name="Estados[0].Descripcion" class="form-control"
-                        placeholder="Ingrese la descripción del estado" />
+                    <textarea type="text" name="Estados[0].Descripcion" class="form-control"
+                        placeholder="Ingrese la descripción del estado" cols="15" rows="10" /></textarea>
                 </div>
             </div>
 
-            <div class="form-group">
-                <button type="button" class="btn btn-secondary" id="addEstadoButton">Agregar Estado</button>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-secondary" id="addEstadoButton">Agregar Estado<i class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
             </div>
             <h3>Flujograma</h3>
-            <div>
+            <div style="margin-bottom: 20px;">
                 <label type="button" id="custom-button">Cargar Imagen</label>
                 <input type="file" id="upload" name="upload" />
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Autores" class="control-label"></label>
-                <textarea asp-for="Autores" class="form-control"></textarea>
+                <textarea asp-for="Autores" class="form-control" cols="30" rows="10"></textarea>
                 <span asp-validation-for="Autores" class="text-danger"></span>
             </div>
             <h4>Antecedentes del paciente</h4>
             <h3>Historia clínica del paciente</h3>
             <div class="form-group">
                 <label asp-for="Historial_medico" class="control-label"></label>
-                <textarea asp-for="Historial_medico" class="form-control"></textarea>
+                <textarea asp-for="Historial_medico" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="Historial_medico" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -72,7 +73,7 @@
                 <textarea asp-for="Medicamentos" class="form-control"></textarea>
                 <span asp-validation-for="Medicamentos" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Historia_familiar" class="control-label"></label>
                 <textarea asp-for="Historia_familiar" class="form-control"></textarea>
                 <span asp-validation-for="Historia_familiar" class="text-danger"></span>
@@ -80,12 +81,12 @@
             <h3>Nota del ingreso</h3>
             <div class="form-group">
                 <label asp-for="Situacion" class="control-label"></label>
-                <textarea asp-for="Situacion" class="form-control"></textarea>
+                <textarea asp-for="Situacion" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="Situacion" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Nota_de_hospitalizacion" class="control-label"></label>
-                <textarea asp-for="Nota_de_hospitalizacion" class="form-control"></textarea>
+                <textarea asp-for="Nota_de_hospitalizacion" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="Nota_de_hospitalizacion" class="text-danger"></span>
             </div>
             <h3>Exámen físico</h3>
@@ -120,20 +121,25 @@
                 <span asp-validation-for="Abdomen" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Neurologico" class="control-label"></label>
+                <textarea asp-for="Neurologico" class="form-control"></textarea>
+                <span asp-validation-for="Neurologico" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Laboratorio" class="control-label"></label>
                 <textarea asp-for="Laboratorio" class="form-control"></textarea>
                 <span asp-validation-for="Laboratorio" class="text-danger"></span>
             </div>
 
             <h3>Imágenes</h3>
-            <div>
+            <div style="margin-bottom: 20px;">
                 <label type="button" id="custom-button">Cargar Imagen</label>
                 <input type="file" id="uploada" name="uploada" />
             </div>
             <h3>Órdenes</h3>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Orden_inicial" class="control-label"></label>
-                <textarea asp-for="Orden_inicial" class="form-control"></textarea>
+                <textarea asp-for="Orden_inicial" class="form-control" cols="30" rows="30"></textarea>
                 <span asp-validation-for="Orden_inicial" class="text-danger"></span>
             </div>
             <h3>Preparación</h3>
@@ -158,7 +164,7 @@
                 <textarea asp-for="Evaluación" class="form-control"></textarea>
                 <span asp-validation-for="Evaluación" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Aplicar" class="control-label"></label>
                 <textarea asp-for="Aplicar" class="form-control"></textarea>
                 <span asp-validation-for="Aplicar" class="text-danger"></span>
@@ -167,78 +173,82 @@
             <h3>Medidas esenciales de rendimiento del escenario</h3>
             <div class="form-group">
                 <label asp-for="Medidas_esenciales" class="control-label"></label>
-                <textarea asp-for="Medidas_esenciales" class="form-control"></textarea>
+                <textarea asp-for="Medidas_esenciales" class="form-control" cols="30" rows="10"></textarea>
                 <span asp-validation-for="Medidas_esenciales" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Baseline" class="control-label"></label>
-                <textarea asp-for="Baseline" class="form-control"></textarea>
+                <textarea asp-for="Baseline" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="Baseline" class="text-danger"></span>
             </div>
 
             <h3>Estados</h3>
-            <div id="estadosaContainer">
+            <div id="estadosaContainer" style="margin-bottom: 20px;">
                 <div class="form-group">
-                    <label for="Estadosa_0_Nombre">Número</label>
-                    <input type="text" name="Estadosa[0].Numero" class="form-control"
-                        placeholder="Ingrese el número del estado" />
+                    <div class="col-md-1">
+                        <label for="Estadosa_0_Nombre">Número</label>
+                        <input type="text" name="Estadosa[0].Numero" class="form-control" placeholder="Ingrese N°" />
+                    </div>
 
                     <label for="Estadosa_0_Nombre">Nombre</label>
                     <input type="text" name="Estadosa[0].Nombre" class="form-control"
                         placeholder="Ingrese el nombre del estado" />
 
                     <label for="Estadosa_0_Descripcion">Descripción del Estado</label>
-                    <input type="text" name="Estadosa[0].Descripcion" class="form-control"
-                        placeholder="Ingrese la descripción del estado" />
+                    <textarea type="text" name="Estadosa[0].Descripcion" class="form-control"
+                        placeholder="Ingrese la descripción del estado" cols="30" rows="10" /></textarea>
                 </div>
             </div>
 
-            <div class="form-group">
-                <button type="button" class="btn btn-secondary" id="addEstadoaButton">Agregar Estado</button>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-secondary" id="addEstadoaButton">Agregar estado<i class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
             </div>
+
             <div class="form-group">
                 <label asp-for="Preguntas_de_preparacion" class="control-label"></label>
-                <textarea asp-for="Preguntas_de_preparacion" class="form-control"></textarea>
+                <textarea asp-for="Preguntas_de_preparacion" class="form-control" cols="30" rows="10"></textarea>
                 <span asp-validation-for="Preguntas_de_preparacion" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Equipos_de_suministro" class="control-label"></label>
-                <textarea asp-for="Equipos_de_suministro" class="form-control"></textarea>
+                <textarea asp-for="Equipos_de_suministro" class="form-control" cols="30" rows="10"></textarea>
                 <span asp-validation-for="Equipos_de_suministro" class="text-danger"></span>
             </div>
 
             <h3>Diálogo</h3>
-            <div id="dialogoContainer">
+            <div id="dialogoContainer" style="margin-bottom: 20px;">
                 <div class="form-group">
+                    <div class="col-md-3">
                     <label for="Dialogo_0_Personaje">Personaje</label>
                     <input type="text" name="Dialogo[0].Personaje" class="form-control"
-                        placeholder="Ingrese el número del estado" />
+                        placeholder="Ingrese el nombre del personaje" />
+                        </div>
 
                     <label for="Dialogo_0_Guion">Guión</label>
-                    <input type="text" name="Dialogo[0].Guion" class="form-control"
-                        placeholder="Ingrese el nombre del estado" />
+                    <textarea type="text" name="Dialogo[0].Guion" class="form-control"
+                        placeholder="Ingrese el guión del personaje" cols="30" rows="5" /></textarea>
 
                 </div>
             </div>
 
-            <div class="form-group">
-                <button type="button" class="btn btn-secondary" id="addDialogoButton">Agregar Dialogo</button>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-secondary" id="addDialogoButton">Agregar Dialogo<i class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Confederado" class="control-label"></label>
-                <textarea asp-for="Confederado" class="form-control"></textarea>
+                <textarea asp-for="Confederado" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="Confederado" class="text-danger"></span>
             </div>
 
             <h3>Archivos Adicionales</h3>
             <div>
                 <label type="button" id="custom-button-archivo">Cargar Archivo Adicional</label>
-<input type="file" id="uploadArchivo" name="uploadArchivo" />
+                <input type="file" id="uploadArchivo" name="uploadArchivo" />
 
 
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label>Texto extraído del PDF:</label>
                 <textarea asp-for="ArchivoTextoExtraido" class="form-control" readonly></textarea>
             </div>
@@ -275,65 +285,64 @@
 
             <div class="form-group">
                 <label asp-for="PreguntasDD" class="control-label"></label>
-                <textarea asp-for="PreguntasDD" class="form-control"></textarea>
+                <textarea asp-for="PreguntasDD" class="form-control" cols="30" rows="30"></textarea>
                 <span asp-validation-for="PreguntasDD" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="BaselineApren" class="control-label"></label>
                 <textarea asp-for="BaselineApren" class="form-control"></textarea>
                 <span asp-validation-for="BaselineApren" class="text-danger"></span>
             </div>
 
             <h3>Estados</h3>
-            <div id="statusContainer">
+            <div id="statusContainer" style="margin-bottom: 20px;">
                 <div class="form-group">
+                    <div class="col-md-1">
                     <label for="Status_0_Nombre">Número</label>
                     <input type="text" name="Status[0].Numero" class="form-control"
-                        placeholder="Ingrese el número del estado" />
+                        placeholder="Ingrese N°" />
+                        </div>
 
                     <label for="Status_0_Nombre">Nombre</label>
                     <input type="text" name="Status[0].Nombre" class="form-control"
                         placeholder="Ingrese el nombre del estado" />
 
                     <label for="Status_0_Descripcion">Descripción del Estado</label>
-                    <input type="text" name="Status[0].Descripcion" class="form-control"
-                        placeholder="Ingrese la descripción del estado" />
+                    <textarea type="text" name="Status[0].Descripcion" class="form-control"
+                        placeholder="Ingrese la descripción del estado" cols="30" rows="10" /></textarea>
                 </div>
             </div>
 
-            <div class="form-group">
-                <button type="button" class="btn btn-secondary" id="addStatusButton">Agregar Estado</button>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-secondary" id="addStatusButton">Agregar Estado<i class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
             </div>
 
             <div class="form-group">
                 <label asp-for="ReferenciasB" class="control-label"></label>
-                <textarea asp-for="ReferenciasB" class="form-control"></textarea>
+                <textarea asp-for="ReferenciasB" class="form-control" cols="30" rows="10"></textarea>
                 <span asp-validation-for="ReferenciasB" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="EscenariosP" class="control-label"></label>
-                <textarea asp-for="EscenariosP" class="form-control"></textarea>
+                <textarea asp-for="EscenariosP" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="EscenariosP" class="text-danger"></span>
             </div>
 
             <h3>Imágenes</h3>
-            <div>
+            <div style="margin-bottom: 20px;">
                 <label type="button" id="custom-button">Cargar Imagen</label>
                 <input type="file" id="uploadc" name="uploadc" />
             </div>
 
             <hr>
-            <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-primary" />
+            <div class="text-right d-flex justify-content-end">
+                <input type="submit" value="Crear" class="btn btn-success mx-1" />
+                <a class="btn btn-primary mx-1" asp-action="Index2">Regresar a la lista</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Regresar a la lista</a>
 </div>
 
 @section Scripts {
@@ -347,15 +356,15 @@
             let newEstadoInput = document.createElement("div");
             newEstadoInput.classList.add("form-group");
             newEstadoInput.innerHTML = `
-                                <label for="Estados_${estadoCount}_Numero">Número del Estado</label>
-                                <input type="number" name="Estados[${estadoCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
+                                    <label for="Estados_${estadoCount}_Numero">Número del Estado</label>
+                                    <input type="number" name="Estados[${estadoCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
 
-                                <label for="Estados_${estadoCount}_Nombre">Estado ${estadoCount + 1}: Nombre del Estado</label>
-                                <input type="text" name="Estados[${estadoCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
+                                    <label for="Estados_${estadoCount}_Nombre">Estado ${estadoCount + 1}: Nombre del Estado</label>
+                                    <input type="text" name="Estados[${estadoCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
 
-                                <label for="Estados_${estadoCount}_Descripcion">Descripción del Estado</label>
-                                <input type="text" name="Estados[${estadoCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
-                            `;
+                                    <label for="Estados_${estadoCount}_Descripcion">Descripción del Estado</label>
+                                    <input type="text" name="Estados[${estadoCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
+                                `;
             document.getElementById("estadosContainer").appendChild(newEstadoInput);
             estadoCount++;
         };
@@ -366,15 +375,15 @@
             let newEstadoaInput = document.createElement("div");
             newEstadoaInput.classList.add("form-group");
             newEstadoaInput.innerHTML = `
-                                <label for="Estadosa_${estadoaCount}_Numero">Número del Estado</label>
-                                <input type="number" name="Estadosa[${estadoaCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
+                                    <label for="Estadosa_${estadoaCount}_Numero">Número del Estado</label>
+                                    <input type="number" name="Estadosa[${estadoaCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
 
-                                <label for="Estadosa_${estadoaCount}_Nombre">Estado ${estadoaCount + 1}: Nombre del Estado</label>
-                                <input type="text" name="Estadosa[${estadoaCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
+                                    <label for="Estadosa_${estadoaCount}_Nombre">Estado ${estadoaCount + 1}: Nombre del Estado</label>
+                                    <input type="text" name="Estadosa[${estadoaCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
 
-                                <label for="Estadosa_${estadoaCount}_Descripcion">Descripción del Estado</label>
-                                <input type="text" name="Estadosa[${estadoaCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
-                            `;
+                                    <label for="Estadosa_${estadoaCount}_Descripcion">Descripción del Estado</label>
+                                    <input type="text" name="Estadosa[${estadoaCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
+                                `;
             document.getElementById("estadosaContainer").appendChild(newEstadoaInput);
             estadoaCount++;
         };
@@ -385,13 +394,13 @@
             let newDialogoInput = document.createElement("div");
             newDialogoInput.classList.add("form-group");
             newDialogoInput.innerHTML = `
-                                <label for="Dialogo_${dialogoCount}_Personaje">Personaje</label>
-                                <input type="text" name="Dialogo[${dialogoCount}].Personaje" class="form-control" placeholder="Ingrese el nombre del personaje" />
+                                    <label for="Dialogo_${dialogoCount}_Personaje">Personaje</label>
+                                    <input type="text" name="Dialogo[${dialogoCount}].Personaje" class="form-control" placeholder="Ingrese el nombre del personaje" />
 
-                                <label for="Dialogo_${dialogoCount}_Guion">Guion</label>
-                                <input type="text" name="Dialogo[${dialogoCount}].Guion" class="form-control" placeholder="Ingrese el guión del personaje" />
+                                    <label for="Dialogo_${dialogoCount}_Guion">Guion</label>
+                                    <input type="text" name="Dialogo[${dialogoCount}].Guion" class="form-control" placeholder="Ingrese el guión del personaje" />
 
-                            `;
+                                `;
             document.getElementById("dialogoContainer").appendChild(newDialogoInput);
             dialogoCount++;
         };
@@ -405,12 +414,12 @@
                     let newArchivoInput = document.createElement("div");
                     newArchivoInput.classList.add("form-group");
                     newArchivoInput.innerHTML = `
-                    <label for="ArchivosAdicionales_${archivoCount}_Nombre">Nombre del Archivo</label>
-                    <input type="text" name="ArchivosAdicionales[${archivoCount}].Nombre" class="form-control" placeholder="Ingrese un nombre para el archivo" required />
+                        <label for="ArchivosAdicionales_${archivoCount}_Nombre">Nombre del Archivo</label>
+                        <input type="text" name="ArchivosAdicionales[${archivoCount}].Nombre" class="form-control" placeholder="Ingrese un nombre para el archivo" required />
 
-                    <label for="ArchivosAdicionales_${archivoCount}_Archivo">Archivo</label>
-                    <input type="file" name="ArchivosAdicionales[${archivoCount}].Archivo" class="form-control-file" accept="*/*" required />
-                `;
+                        <label for="ArchivosAdicionales_${archivoCount}_Archivo">Archivo</label>
+                        <input type="file" name="ArchivosAdicionales[${archivoCount}].Archivo" class="form-control-file" accept="*/*" required />
+                    `;
                     document.getElementById("archivosContainer").appendChild(newArchivoInput);
                     archivoCount++;
                 };
@@ -427,15 +436,15 @@
                 let newStatusInput = document.createElement("div");
                 newStatusInput.classList.add("form-group");
                 newStatusInput.innerHTML = `
-                    <label for="Status_${statuCount}_Numero">Número del Estado</label>
-                    <input type="number" name="Status[${statuCount}].Numero" class="form-control" placeholder="Número" />
+                        <label for="Status_${statuCount}_Numero">Número del Estado</label>
+                        <input type="number" name="Status[${statuCount}].Numero" class="form-control" placeholder="Número" />
 
-                    <label for="Status_${statuCount}_Nombre">Nombre</label>
-                    <input type="text" name="Status[${statuCount}].Nombre" class="form-control" placeholder="Nombre" />
+                        <label for="Status_${statuCount}_Nombre">Nombre</label>
+                        <input type="text" name="Status[${statuCount}].Nombre" class="form-control" placeholder="Nombre" />
 
-                    <label for="Status_${statuCount}_Descripcion">Descripción</label>
-                    <input type="text" name="Status[${statuCount}].Descripcion" class="form-control" placeholder="Descripción" />
-                `;
+                        <label for="Status_${statuCount}_Descripcion">Descripción</label>
+                        <input type="text" name="Status[${statuCount}].Descripcion" class="form-control" placeholder="Descripción" />
+                    `;
                 document.getElementById("statusContainer").appendChild(newStatusInput);
                 statuCount++;
             });

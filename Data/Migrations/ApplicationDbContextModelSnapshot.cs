@@ -242,6 +242,10 @@ namespace FORMULARIOCENSI.Data.Migrations
                         .HasColumnType("text")
                         .HasColumnName("medidas_esenciales");
 
+                    b.Property<string>("Neurologico")
+                        .HasColumnType("text")
+                        .HasColumnName("neurologico");
+
                     b.Property<string>("Nota_de_hospitalizacion")
                         .HasColumnType("text")
                         .HasColumnName("nota_de_hospitalizacion");
