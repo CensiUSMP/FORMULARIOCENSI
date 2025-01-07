@@ -13619,7 +13619,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "FORMULARIOCENSI depende de libwkhtmltox-64 (>= 0.12.6.1), pero no se encontró libwkhtmltox-64 0.12.6.1. Se resolvió una mejor coincidencia aproximada de libwkhtmltox-64 1.0.0.",
+      "message": "FORMULARIOCENSI depends on libwkhtmltox-64 (>= 0.12.6.1) but libwkhtmltox-64 0.12.6.1 was not found. An approximate best match of libwkhtmltox-64 1.0.0 was resolved.",
       "libraryId": "libwkhtmltox-64",
       "targetGraphs": [
         "net8.0"
@@ -13629,7 +13629,7 @@
       "code": "NU1902",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"RazorEngine\" 3.10.0 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-ph3v-2hq5-5qfq",
+      "message": "Package 'RazorEngine' 3.10.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-ph3v-2hq5-5qfq",
       "libraryId": "RazorEngine",
       "targetGraphs": [
         "net8.0"
@@ -13639,7 +13639,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"libwkhtmltox-64 1.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'libwkhtmltox-64 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
       "libraryId": "libwkhtmltox-64",
       "targetGraphs": [
         "net8.0"
@@ -13649,7 +13649,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Microsoft.AspNet.Razor 3.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'Microsoft.AspNet.Razor 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Razor",
       "targetGraphs": [
         "net8.0"
@@ -13659,7 +13659,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"RazorEngine 3.10.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'RazorEngine 3.10.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
       "libraryId": "RazorEngine",
       "targetGraphs": [
         "net8.0"

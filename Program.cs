@@ -19,8 +19,14 @@ builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new 
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/Identity/Account/Login"; // Cambia esta ruta a la tuya
-    options.AccessDeniedPath = "/Account/AccessDenied"; // Ruta opcional para acceso denegado
+    options.LoginPath = "/Identity/Account/Login"; // Página de inicio de sesión
+    options.AccessDeniedPath = "/Account/AccessDenied"; // Página de acceso denegado
+    options.ReturnUrlParameter = "ReturnUrl"; // Parámetro de retorno
+    options.Events.OnRedirectToLogin = context =>
+    {
+        context.Response.Redirect(context.RedirectUri); // Redirección personalizada
+        return Task.CompletedTask;
+    };
 });
 
 var app = builder.Build();
@@ -48,7 +54,13 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 app.MapRazorPages();
+
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/Identity/Account/Login");
+    return Task.CompletedTask;
+});
 
 app.Run();

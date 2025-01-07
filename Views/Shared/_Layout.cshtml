@@ -14,21 +14,24 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/images/logo.jpeg" alt="" height="50" width="320"></a>
+                <!-- Logo con redirección basada en roles -->
+                <a class="navbar-brand" href="#" id="logoLink">
+                    <img src="/images/logo.jpeg" alt="" height="50" width="320">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                       
-                        
+                        <!-- Aquí van los elementos de navegación -->
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -40,9 +43,35 @@
             &copy; 2024 - FORMULARIOCENSI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+    document.getElementById("logoLink").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevenir el comportamiento por defecto de la etiqueta <a>
+        console.log("Logo clicked!");  // Verificar si el evento se está disparando correctamente
+        
+        // Obtener los roles del usuario desde ViewData
+        var userRoles = @Html.Raw(Json.Serialize(ViewData["UserRoles"]));
+
+        console.log("User Roles: ", userRoles);  // Verificar los roles obtenidos
+        
+        // Redirigir según el rol
+        if (userRoles.includes("Admin")) {
+            console.log("Redirecting to Admin/Index");
+            window.location.href = "/Admin/Index"; // Redirige a Admin/Index
+        } else if (userRoles.includes("User")) {
+            console.log("Redirecting to Formulario/Index2");
+            window.location.href = "/Formulario/Index2"; // Redirige a Formulario/Index2
+        } else {
+            console.log("Redirecting to Home/Index");
+            window.location.href = "/Home/Index"; // Redirige a Home/Index si no tiene un rol específico
+        }
+    });
+</script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
