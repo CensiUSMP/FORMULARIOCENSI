@@ -537,6 +537,9 @@ namespace FORMULARIOCENSI.Controllers
         <h2>Abdomen</h2>
         <p>{formulario.Abdomen.Replace(Environment.NewLine, "<br />")}</p>
 
+        <h2>Neurológico</h2>
+        <p>{formulario.Neurologico.Replace(Environment.NewLine, "<br />")}</p>
+
         <h2>Laboratorio</h2>
         <p>{formulario.Laboratorio.Replace(Environment.NewLine, "<br />")}</p>
 

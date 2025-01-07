@@ -4,6 +4,79 @@
     ViewData["Title"] = "Create";
 }
 
+<style>
+    .image-upload-container {
+        margin-bottom: 2rem;
+    }
+
+    .image-upload-title {
+        font-size: 1.2rem;
+        color: #2d3748;
+        margin-bottom: 1rem;
+    }
+
+    .upload-area {
+        border: 2px dashed #CBD5E0;
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        background-color: #F7FAFC;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .upload-area:hover {
+        border-color: #4299E1;
+        background-color: #EBF8FF;
+    }
+
+    .upload-button {
+        background-color: #4299E1;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        display: inline-block;
+    }
+
+    .upload-button:hover {
+        background-color: #3182CE;
+    }
+
+    #uploadc {
+        display: none;
+    }
+
+    #upload {
+        display: none;
+    }
+
+    #uploada {
+        display: none;
+    }
+
+    .preview-area {
+        margin-top: 1rem;
+        display: none;
+    }
+
+    .preview-image {
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 4px;
+        margin-top: 1rem;
+    }
+
+    .file-info {
+        margin-top: 0.5rem;
+        color: #4A5568;
+        font-size: 0.875rem;
+    }
+</style>
+
 <h1>CREAR CASO</h1>
 
 
@@ -44,12 +117,20 @@
             </div>
 
             <div class="form-group" style="margin-bottom: 20px;">
-                <button type="button" class="btn btn-secondary" id="addEstadoButton">Agregar Estado<i class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
+                <button type="button" class="btn btn-secondary" id="addEstadoButton">Agregar Estado<i
+                        class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
             </div>
             <h3>Flujograma</h3>
-            <div style="margin-bottom: 20px;">
-                <label type="button" id="custom-button">Cargar Imagen</label>
-                <input type="file" id="upload" name="upload" />
+            <div class="upload-area" id="dropZoneFlujograma">
+                <p>Arrastra y suelta tu flujograma aquí o</p>
+                <label class="upload-button" for="upload">
+                    Seleccionar archivo
+                </label>
+                <input type="file" id="upload" name="upload" accept="image/*" />
+            </div>
+            <div class="preview-area" id="previewAreaFlujograma">
+                <img class="preview-image" id="previewImageFlujograma" alt="Vista previa" />
+                <div class="file-info" id="fileInfoFlujograma"></div>
             </div>
             <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Autores" class="control-label"></label>
@@ -132,9 +213,16 @@
             </div>
 
             <h3>Imágenes</h3>
-            <div style="margin-bottom: 20px;">
-                <label type="button" id="custom-button">Cargar Imagen</label>
-                <input type="file" id="uploada" name="uploada" />
+            <div class="upload-area" id="dropZoneImagesa">
+                <p>Arrastra y suelta tu imagen aquí o</p>
+                <label class="upload-button" for="uploada">
+                    Seleccionar archivo
+                </label>
+                <input type="file" id="uploada" name="uploada" accept="image/*" />
+            </div>
+            <div class="preview-area" id="previewAreaImagesa">
+                <img class="preview-image" id="previewImageImagesa" alt="Vista previa" />
+                <div class="file-info" id="fileInfoImagesa"></div>
             </div>
             <h3>Órdenes</h3>
             <div class="form-group" style="margin-bottom: 20px;">
@@ -201,7 +289,8 @@
             </div>
 
             <div class="form-group" style="margin-bottom: 20px;">
-                <button type="button" class="btn btn-secondary" id="addEstadoaButton">Agregar estado<i class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
+                <button type="button" class="btn btn-secondary" id="addEstadoaButton">Agregar estado<i
+                        class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
             </div>
 
             <div class="form-group">
@@ -219,10 +308,10 @@
             <div id="dialogoContainer" style="margin-bottom: 20px;">
                 <div class="form-group">
                     <div class="col-md-3">
-                    <label for="Dialogo_0_Personaje">Personaje</label>
-                    <input type="text" name="Dialogo[0].Personaje" class="form-control"
-                        placeholder="Ingrese el nombre del personaje" />
-                        </div>
+                        <label for="Dialogo_0_Personaje">Personaje</label>
+                        <input type="text" name="Dialogo[0].Personaje" class="form-control"
+                            placeholder="Ingrese el nombre del personaje" />
+                    </div>
 
                     <label for="Dialogo_0_Guion">Guión</label>
                     <textarea type="text" name="Dialogo[0].Guion" class="form-control"
@@ -232,7 +321,8 @@
             </div>
 
             <div class="form-group" style="margin-bottom: 20px;">
-                <button type="button" class="btn btn-secondary" id="addDialogoButton">Agregar Dialogo<i class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
+                <button type="button" class="btn btn-secondary" id="addDialogoButton">Agregar Dialogo<i
+                        class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
             </div>
 
             <div class="form-group" style="margin-bottom: 20px;">
@@ -299,10 +389,9 @@
             <div id="statusContainer" style="margin-bottom: 20px;">
                 <div class="form-group">
                     <div class="col-md-1">
-                    <label for="Status_0_Nombre">Número</label>
-                    <input type="text" name="Status[0].Numero" class="form-control"
-                        placeholder="Ingrese N°" />
-                        </div>
+                        <label for="Status_0_Nombre">Número</label>
+                        <input type="text" name="Status[0].Numero" class="form-control" placeholder="Ingrese N°" />
+                    </div>
 
                     <label for="Status_0_Nombre">Nombre</label>
                     <input type="text" name="Status[0].Nombre" class="form-control"
@@ -315,7 +404,8 @@
             </div>
 
             <div class="form-group" style="margin-bottom: 20px;">
-                <button type="button" class="btn btn-secondary" id="addStatusButton">Agregar Estado<i class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
+                <button type="button" class="btn btn-secondary" id="addStatusButton">Agregar Estado<i
+                        class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
             </div>
 
             <div class="form-group">
@@ -331,9 +421,16 @@
             </div>
 
             <h3>Imágenes</h3>
-            <div style="margin-bottom: 20px;">
-                <label type="button" id="custom-button">Cargar Imagen</label>
-                <input type="file" id="uploadc" name="uploadc" />
+            <div class="upload-area" id="dropZoneImages">
+                <p>Arrastra y suelta tu imagen aquí o</p>
+                <label class="upload-button" for="uploadc">
+                    Seleccionar archivo
+                </label>
+                <input type="file" id="uploadc" name="uploadc" accept="image/*" />
+            </div>
+            <div class="preview-area" id="previewAreaImages">
+                <img class="preview-image" id="previewImageImages" alt="Vista previa" />
+                <div class="file-info" id="fileInfoImages"></div>
             </div>
 
             <hr>
@@ -356,15 +453,17 @@
             let newEstadoInput = document.createElement("div");
             newEstadoInput.classList.add("form-group");
             newEstadoInput.innerHTML = `
-                                    <label for="Estados_${estadoCount}_Numero">Número del Estado</label>
-                                    <input type="number" name="Estados[${estadoCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
+                            <div class="col-md-1">
+                                                    <label for="Estados_${estadoCount}_Numero">Estado</label>
+                                                    <input type="number" name="Estados[${estadoCount}].Numero" class="form-control" placeholder="Ingrese N°" value="${estadoCount + 1}"/>
+                                                    </div>
 
-                                    <label for="Estados_${estadoCount}_Nombre">Estado ${estadoCount + 1}: Nombre del Estado</label>
-                                    <input type="text" name="Estados[${estadoCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
+                                                    <label for="Estados_${estadoCount}_Nombre">Nombre del Estado</label>
+                                                    <input type="text" name="Estados[${estadoCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
 
-                                    <label for="Estados_${estadoCount}_Descripcion">Descripción del Estado</label>
-                                    <input type="text" name="Estados[${estadoCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
-                                `;
+                                                    <label for="Estados_${estadoCount}_Descripcion">Descripción del Estado</label>
+                                                    <textarea type="text" name="Estados[${estadoCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" cols="30" rows="10" /></textarea>
+                                                `;
             document.getElementById("estadosContainer").appendChild(newEstadoInput);
             estadoCount++;
         };
@@ -375,15 +474,17 @@
             let newEstadoaInput = document.createElement("div");
             newEstadoaInput.classList.add("form-group");
             newEstadoaInput.innerHTML = `
-                                    <label for="Estadosa_${estadoaCount}_Numero">Número del Estado</label>
-                                    <input type="number" name="Estadosa[${estadoaCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
+                            <div class="col-md-1">
+                                                    <label for="Estadosa_${estadoaCount}_Numero">Estado</label>
+                                                    <input type="number" name="Estadosa[${estadoaCount}].Numero" class="form-control" placeholder="Ingrese N°" value="${estadoaCount + 1}" />
+                                                    </div>
 
-                                    <label for="Estadosa_${estadoaCount}_Nombre">Estado ${estadoaCount + 1}: Nombre del Estado</label>
-                                    <input type="text" name="Estadosa[${estadoaCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
+                                                    <label for="Estadosa_${estadoaCount}_Nombre">Nombre del Estado</label>
+                                                    <input type="text" name="Estadosa[${estadoaCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
 
-                                    <label for="Estadosa_${estadoaCount}_Descripcion">Descripción del Estado</label>
-                                    <input type="text" name="Estadosa[${estadoaCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
-                                `;
+                                                    <label for="Estadosa_${estadoaCount}_Descripcion">Descripción del Estado</label>
+                                                    <textarea type="text" name="Estadosa[${estadoaCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" cols="30" rows="10" /></textarea>
+                                                `;
             document.getElementById("estadosaContainer").appendChild(newEstadoaInput);
             estadoaCount++;
         };
@@ -394,13 +495,15 @@
             let newDialogoInput = document.createElement("div");
             newDialogoInput.classList.add("form-group");
             newDialogoInput.innerHTML = `
-                                    <label for="Dialogo_${dialogoCount}_Personaje">Personaje</label>
-                                    <input type="text" name="Dialogo[${dialogoCount}].Personaje" class="form-control" placeholder="Ingrese el nombre del personaje" />
+                            <div class="col-md-3">
+                                                    <label for="Dialogo_${dialogoCount}_Personaje">Personaje</label>
+                                                    <input type="text" name="Dialogo[${dialogoCount}].Personaje" class="form-control" placeholder="Ingrese el nombre del personaje" />
+                                                    </div>
 
-                                    <label for="Dialogo_${dialogoCount}_Guion">Guion</label>
-                                    <input type="text" name="Dialogo[${dialogoCount}].Guion" class="form-control" placeholder="Ingrese el guión del personaje" />
+                                                    <label for="Dialogo_${dialogoCount}_Guion">Guion</label>
+                                                    <textarea type="text" name="Dialogo[${dialogoCount}].Guion" class="form-control" placeholder="Ingrese el guión del personaje" cols="30" rows="5" /></textarea>
 
-                                `;
+                                                `;
             document.getElementById("dialogoContainer").appendChild(newDialogoInput);
             dialogoCount++;
         };
@@ -414,12 +517,12 @@
                     let newArchivoInput = document.createElement("div");
                     newArchivoInput.classList.add("form-group");
                     newArchivoInput.innerHTML = `
-                        <label for="ArchivosAdicionales_${archivoCount}_Nombre">Nombre del Archivo</label>
-                        <input type="text" name="ArchivosAdicionales[${archivoCount}].Nombre" class="form-control" placeholder="Ingrese un nombre para el archivo" required />
+                                        <label for="ArchivosAdicionales_${archivoCount}_Nombre">Nombre del Archivo</label>
+                                        <input type="text" name="ArchivosAdicionales[${archivoCount}].Nombre" class="form-control" placeholder="Ingrese un nombre para el archivo" required />
 
-                        <label for="ArchivosAdicionales_${archivoCount}_Archivo">Archivo</label>
-                        <input type="file" name="ArchivosAdicionales[${archivoCount}].Archivo" class="form-control-file" accept="*/*" required />
-                    `;
+                                        <label for="ArchivosAdicionales_${archivoCount}_Archivo">Archivo</label>
+                                        <input type="file" name="ArchivosAdicionales[${archivoCount}].Archivo" class="form-control-file" accept="*/*" required />
+                                    `;
                     document.getElementById("archivosContainer").appendChild(newArchivoInput);
                     archivoCount++;
                 };
@@ -436,18 +539,199 @@
                 let newStatusInput = document.createElement("div");
                 newStatusInput.classList.add("form-group");
                 newStatusInput.innerHTML = `
-                        <label for="Status_${statuCount}_Numero">Número del Estado</label>
-                        <input type="number" name="Status[${statuCount}].Numero" class="form-control" placeholder="Número" />
+                                <div class="col-md-1">
+                                        <label for="Status_${statuCount}_Numero">Estado</label>
+                                        <input type="number" name="Status[${statuCount}].Numero" class="form-control" placeholder="Ingrese N°" value="${statuCount + 1}" />
+                                        </div>
 
-                        <label for="Status_${statuCount}_Nombre">Nombre</label>
-                        <input type="text" name="Status[${statuCount}].Nombre" class="form-control" placeholder="Nombre" />
+                                        <label for="Status_${statuCount}_Nombre">Nombre del estado</label>
+                                        <input type="text" name="Status[${statuCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
 
-                        <label for="Status_${statuCount}_Descripcion">Descripción</label>
-                        <input type="text" name="Status[${statuCount}].Descripcion" class="form-control" placeholder="Descripción" />
-                    `;
+                                        <label for="Status_${statuCount}_Descripcion">Descripción del estado</label>
+                                        <textarea type="text" name="Status[${statuCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" cols="30" rows="10" /></textarea>
+                                    `;
                 document.getElementById("statusContainer").appendChild(newStatusInput);
                 statuCount++;
             });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropZone = document.getElementById('dropZoneImages');
+            const fileInput = document.getElementById('uploadc');
+            const previewArea = document.getElementById('previewAreaImages');
+            const previewImage = document.getElementById('previewImageImages');
+            const fileInfo = document.getElementById('fileInfoImages');
+
+            // Prevenir comportamientos por defecto
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Manejar archivos
+            fileInput.addEventListener('change', handleFileSelect);
+            dropZone.addEventListener('drop', handleDrop);
+
+            function handleFileSelect(e) {
+                const file = this.files[0];
+                if (file) displayFile(file);
+            }
+
+            function handleDrop(e) {
+                const file = e.dataTransfer.files[0];
+                if (file) {
+                    fileInput.files = e.dataTransfer.files;
+                    displayFile(file);
+                }
+            }
+
+            function displayFile(file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        previewImage.src = e.target.result;
+                        previewArea.style.display = 'block';
+                        fileInfo.textContent = `${file.name} (${formatFileSize(file.size)})`;
+                    }
+
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Por favor, selecciona solo archivos de imagen.');
+                    fileInput.value = '';
+                }
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropZone = document.getElementById('dropZoneFlujograma');
+            const fileInput = document.getElementById('upload');
+            const previewArea = document.getElementById('previewAreaFlujograma');
+            const previewImage = document.getElementById('previewImageFlujograma');
+            const fileInfo = document.getElementById('fileInfoFlujograma');
+
+            // Prevenir comportamientos por defecto
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Manejar archivos
+            fileInput.addEventListener('change', handleFileSelect);
+            dropZone.addEventListener('drop', handleDrop);
+
+            function handleFileSelect(e) {
+                const file = this.files[0];
+                if (file) displayFile(file);
+            }
+
+            function handleDrop(e) {
+                const file = e.dataTransfer.files[0];
+                if (file) {
+                    fileInput.files = e.dataTransfer.files;
+                    displayFile(file);
+                }
+            }
+
+            function displayFile(file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        previewImage.src = e.target.result;
+                        previewArea.style.display = 'block';
+                        fileInfo.textContent = `${file.name} (${formatFileSize(file.size)})`;
+                    }
+
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Por favor, selecciona solo archivos de imagen.');
+                    fileInput.value = '';
+                }
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropZone = document.getElementById('dropZoneImagesa');
+            const fileInput = document.getElementById('uploada');
+            const previewArea = document.getElementById('previewAreaImagesa');
+            const previewImage = document.getElementById('previewImageImagesa');
+            const fileInfo = document.getElementById('fileInfoImagesa');
+
+            // Prevenir comportamientos por defecto
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Manejar archivos
+            fileInput.addEventListener('change', handleFileSelect);
+            dropZone.addEventListener('drop', handleDrop);
+
+            function handleFileSelect(e) {
+                const file = this.files[0];
+                if (file) displayFile(file);
+            }
+
+            function handleDrop(e) {
+                const file = e.dataTransfer.files[0];
+                if (file) {
+                    fileInput.files = e.dataTransfer.files;
+                    displayFile(file);
+                }
+            }
+
+            function displayFile(file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        previewImage.src = e.target.result;
+                        previewArea.style.display = 'block';
+                        fileInfo.textContent = `${file.name} (${formatFileSize(file.size)})`;
+                    }
+
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Por favor, selecciona solo archivos de imagen.');
+                    fileInput.value = '';
+                }
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
         });
     </script>
 }
