@@ -5,8 +5,9 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        IdentityUser myidentity = await Task.Run(() => UserManager.GetUserAsync(User));
-        var roles = await Task.Run(() => UserManager.GetRolesAsync(myidentity));
+        // Obtener el usuario de forma sincrónica
+        IdentityUser myidentity = UserManager.GetUserAsync(User).Result;
+        var roles = UserManager.GetRolesAsync(myidentity).Result;
 
         @if (roles.Contains("Admin") || roles.Contains("Operador"))
         {
@@ -17,8 +18,8 @@
         @if (roles.Contains("User") || roles.Contains("Operador"))
         {
             <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Formulario" asp-action="Index2">Registrar caso</a>
-        </li>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Formulario" asp-action="Index2">Registrar caso</a>
+            </li>
         }
         
         <li class="nav-item">
@@ -26,8 +27,8 @@
                 @User.Identity?.Name!</a>
         </li>
         <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
-                asp-route-returnUrl="@Url.Action("Login", "Account", new { area = "" })">
+            <!-- Formulario de logout -->
+            <form class="form-inline" method="post" asp-area="Identity" asp-page="/Account/Logout">
                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
             </form>
         </li>

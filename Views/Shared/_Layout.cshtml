@@ -44,6 +44,12 @@
         </div>
     </footer>
 
+    <div id="toastMessage" class="toast-message" style="display:none;">
+        <div class="toast-content">
+            <p>¡Has cerrado sesión correctamente!</p>
+        </div>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -71,6 +77,26 @@
         }
     });
 </script>
+<script>
+        // Función para mostrar el mensaje flotante
+        function showToast(message) {
+            var toast = document.getElementById("toastMessage");
+            var toastContent = toast.querySelector("p");
+            toastContent.innerHTML = message;
+            toast.style.display = "block";
+            setTimeout(function() {
+                toast.style.display = "none";
+            }, 3000); // Mostrar por 3 segundos
+        }
+
+        // Mostrar mensaje de logout exitoso si es la URL de logout
+        window.addEventListener("load", function () {
+            var currentUrl = window.location.href;
+            if (currentUrl.indexOf("Logout") !== -1) {
+                showToast("¡Has cerrado sesión correctamente!");
+            }
+        });
+    </script>
 
 
     @await RenderSectionAsync("Scripts", required: false)

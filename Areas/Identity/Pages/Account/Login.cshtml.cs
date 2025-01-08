@@ -24,11 +24,11 @@ namespace FORMULARIOCENSI.Areas.Identity.Pages.Account
         private readonly ILogger<LoginModel> _logger;
 
         public LoginModel(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, ILogger<LoginModel> logger)
-    {
-        _signInManager = signInManager;
-        _userManager = userManager;  // Asignar el UserManager en el constructor
-        _logger = logger;
-    }
+        {
+            _signInManager = signInManager;
+            _userManager = userManager;  // Asignar el UserManager en el constructor
+            _logger = logger;
+        }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -88,6 +88,28 @@ namespace FORMULARIOCENSI.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                // Si ya está autenticado, redirigir según su rol
+                var user = await _userManager.GetUserAsync(User);
+                var roles = await _userManager.GetRolesAsync(user);
+
+                if (roles.Contains("Admin"))
+                {
+                    Response.Redirect("/Admin/Index");
+                }
+                else if (roles.Contains("User"))
+                {
+                    Response.Redirect("/Formulario/Index2");
+                }
+                else
+                {
+                    Response.Redirect("/Home/Index");
+                }
+
+                return;
+            }
+
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
                 ModelState.AddModelError(string.Empty, ErrorMessage);
@@ -103,54 +125,57 @@ namespace FORMULARIOCENSI.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
+
+
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+{
+    returnUrl ??= "/Home/Index";  // Ruta por defecto si no se proporciona returnUrl.
+
+    if (ModelState.IsValid)
     {
-        returnUrl ??= "/Home/Index";  // Ruta por defecto si no se proporciona returnUrl.
-
-        if (ModelState.IsValid)
+        var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+        if (result.Succeeded)
         {
-            var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-            if (result.Succeeded)
+            _logger.LogInformation("User logged in.");
+
+            // Obtener el usuario actual y sus roles
+            var user = await _userManager.GetUserAsync(User);
+            var roles = await _userManager.GetRolesAsync(user);
+
+            // Redirigir según el rol del usuario
+            if (roles.Contains("Admin"))
             {
-                _logger.LogInformation("User logged in.");
-
-                // Obtener el usuario actual y sus roles
-                var user = await _userManager.GetUserAsync(User);
-                var roles = await _userManager.GetRolesAsync(user);
-
-                // Redirigir según el rol del usuario
-                if (roles.Contains("Admin"))
-                {
-                    return RedirectToAction("Index", "Admin");  // Redirige a Admin/Index
-                }
-                else if (roles.Contains("User"))
-                {
-                    return RedirectToAction("Index2", "Formulario");  // Redirige a Formulario/Index2
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");  // Redirige a Home/Index si no tiene el rol adecuado
-                }
+                return RedirectToAction("Index", "Admin");  // Redirige a Admin/Index
             }
-
-            if (result.RequiresTwoFactor)
+            else if (roles.Contains("User"))
             {
-                return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-            }
-
-            if (result.IsLockedOut)
-            {
-                _logger.LogWarning("User account locked out.");
-                return RedirectToPage("./Lockout");
+                return RedirectToAction("Index2", "Formulario");  // Redirige a Formulario/Index2
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                return Page();
+                return RedirectToAction("Index", "Home");  // Redirige a Home/Index si no tiene el rol adecuado
             }
         }
 
-        return Page();
+        if (result.RequiresTwoFactor)
+        {
+            return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+        }
+
+        if (result.IsLockedOut)
+        {
+            _logger.LogWarning("User account locked out.");
+            return RedirectToPage("./Lockout");
+        }
+        else
+        {
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            return Page();
+        }
     }
+
+    return Page();
+}
+
     }
 }
