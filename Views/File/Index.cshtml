@@ -1,0 +1,145 @@
+@model List<FORMULARIOCENSI.Models.RaspberryPiDevice>
+
+<div class="container mt-4">
+    <h2>PDF File Manager</h2>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    <!-- Single Device Upload -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h3>Upload to Single Device</h3>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group mb-3">
+                    <label for="pdfFile">Select PDF:</label>
+                    <input type="file" class="form-control" name="pdfFile" id="pdfFile" accept=".pdf" required />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="selectedDevice">Select Device:</label>
+                    <select class="form-control" name="selectedDevice" id="selectedDevice" required>
+                        <option value="">Select a device...</option>
+                        @foreach (var device in Model)
+                        {
+                            <option value="@device.Name">@device.Name - @device.Location (@device.IpAddress)</option>
+                        }
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Upload to Device</button>
+            }
+        </div>
+    </div>
+
+    <!-- Broadcast -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h3>Broadcast to All Devices</h3>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("BroadcastPdf", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group mb-3">
+                    <label for="broadcastFile">Select PDF:</label>
+                    <input type="file" class="form-control" name="pdfFile" id="broadcastFile" accept=".pdf" required />
+                </div>
+                <button type="submit" class="btn btn-warning">Broadcast File</button>
+            }
+        </div>
+    </div>
+
+    <!-- Device Controls -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h3>Device Controls</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    @using (Html.BeginForm("CloseAll", "File", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger">Close All PDFs</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Device List -->
+    <div class="card">
+        <div class="card-header">
+            <h3>Connected Devices</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>IP Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var device in Model)
+                        {
+                            <tr>
+                                <td>@device.Name</td>
+                                <td>@device.Location</td>
+                                <td>@device.IpAddress</td>
+                                <td>
+                                    @using (Html.BeginForm("Close", "File", FormMethod.Post, new { style = "display: inline;" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("selectedDevice", device.Name)
+                                        <button type="submit" class="btn btn-sm btn-danger">Close PDF</button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadForm = document.querySelector('form');
+            
+            uploadForm.addEventListener('submit', function(e) {
+                const selectedDevice = document.getElementById('selectedDevice').value;
+                if (!selectedDevice) {
+                    e.preventDefault();
+                    alert('Please select a device');
+                    return false;
+                }
+                
+                const formData = new FormData(this);
+                console.log('Selected Device:', formData.get('selectedDevice'));
+                console.log('File:', formData.get('pdfFile'));
+            });
+        });
+    </script>
+}
