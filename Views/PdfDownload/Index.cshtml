@@ -1,0 +1,31 @@
+@model IEnumerable<FORMULARIOCENSI.Models.Formulario>
+
+@{
+    ViewData["Title"] = "Lista de Formularios";
+}
+
+<h2>Lista de Formularios</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Titulo</td>
+                <td>
+                    <a asp-controller="PdfDownload" asp-action="ExportPdf" asp-route-id="@item.Id" class="btn btn-primary" target="_blank">
+                        Descargar PDF
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
