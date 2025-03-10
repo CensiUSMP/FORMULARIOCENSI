@@ -10,9 +10,16 @@ namespace FORMULARIOCENSI.Controllers
         // Lista de IPs de Raspberry Pi
         private static readonly string[] RaspberryPis = 
         {
-            "10.12.1.101", 
+            "10.12.1.101",
+            "10.12.1.102", 
             "10.12.1.103",
             "10.12.1.104",
+            "10.12.1.105",
+            "10.12.1.106",
+            "10.12.1.107",
+            "10.12.1.108",
+            "10.12.1.109",
+            "10.12.1.110",
         };
 
         private const int Port = 65432; // Puerto que estás utilizando

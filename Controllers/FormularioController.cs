@@ -18,6 +18,7 @@ using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
 using RazorEngine;
 using RazorEngine.Templating;
+using System.Security.Claims;
 
 namespace FORMULARIOCENSI.Controllers
 {
@@ -32,9 +33,14 @@ namespace FORMULARIOCENSI.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index2()
+        [Authorize]
+        public async Task<IActionResult> Index2()
         {
-            return View(_context.DataFormulario.ToList());
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            return View(await _context.DataFormulario
+                .Where(f => f.UserId == userId)
+                .ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -44,12 +50,13 @@ namespace FORMULARIOCENSI.Controllers
                 return NotFound();
             }
 
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var formulario = await _context.DataFormulario
                 .Include(p => p.Estados)
                 .Include(p => p.Estadosa)
                 .Include(p => p.Dialogo)
                 .Include(p => p.Status)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id && m.UserId == userId);
             if (formulario == null)
             {
                 return NotFound();
@@ -135,6 +142,7 @@ namespace FORMULARIOCENSI.Controllers
         {
             if (ModelState.IsValid)
             {
+                prueba.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 // Primera imagen
                 if (upload != null && upload.Count > 0)
                 {

@@ -11,6 +11,9 @@ namespace FORMULARIOCENSI.Models
         [Column("id")]
         public int Id { get; set; }
 
+        [Column("userid")]
+        public string UserId { get; set; }
+
         [Column("titulo")]
         public string? Titulo { get; set; }
 

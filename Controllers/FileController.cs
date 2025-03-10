@@ -29,16 +29,65 @@ namespace FORMULARIOCENSI.Controllers
             new RaspberryPiDevice
             {
                 Name = "Device2",
-                IpAddress = "10.12.1.103",
+                IpAddress = "10.12.1.102",
                 Port = 12345,
                 Location = "Room 102"
             },
             new RaspberryPiDevice
             {
                 Name = "Device3",
-                IpAddress = "10.12.1.104",
+                IpAddress = "10.12.1.103",
                 Port = 12345,
                 Location = "Room 103"
+            },
+            new RaspberryPiDevice
+            {
+                Name = "Device4",
+                IpAddress = "10.12.1.104",
+                Port = 12345,
+                Location = "Room 104"
+            },
+            new RaspberryPiDevice
+            {
+                Name = "Device5",
+                IpAddress = "10.12.1.105",
+                Port = 12345,
+                Location = "Room 105"
+            },
+            new RaspberryPiDevice
+            {
+                Name = "Device6",
+                IpAddress = "10.12.1.106",
+                Port = 12345,
+                Location = "Room 106"
+            },
+            new RaspberryPiDevice
+            {
+                Name = "Device7",
+                IpAddress = "10.12.1.107",
+                Port = 12345,
+                Location = "Room 107"
+            },
+            new RaspberryPiDevice
+            {
+                Name = "Device8",
+                IpAddress = "10.12.1.108",
+                Port = 12345,
+                Location = "Room 108"
+            },
+            new RaspberryPiDevice
+            {
+                Name = "Device9",
+                IpAddress = "10.12.1.109",
+                Port = 12345,
+                Location = "Room 109"
+            },
+            new RaspberryPiDevice
+            {
+                Name = "Device10",
+                IpAddress = "10.12.1.110",
+                Port = 12345,
+                Location = "Room 110"
             }
         };
 
