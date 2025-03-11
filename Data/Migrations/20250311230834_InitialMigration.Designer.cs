@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FORMULARIOCENSI.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250213013227_AddAccess")]
-    partial class AddAccess
+    [Migration("20250311230834_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -298,7 +298,6 @@ namespace FORMULARIOCENSI.Data.Migrations
                         .HasColumnName("torax");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("userid");
 

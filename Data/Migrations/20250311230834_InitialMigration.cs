@@ -57,6 +57,7 @@ namespace FORMULARIOCENSI.Data.Migrations
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    userid = table.Column<string>(type: "text", nullable: true),
                     titulo = table.Column<string>(type: "text", nullable: true),
                     sinopsis = table.Column<string>(type: "text", nullable: true),
                     Imagen = table.Column<byte[]>(type: "bytea", nullable: true),

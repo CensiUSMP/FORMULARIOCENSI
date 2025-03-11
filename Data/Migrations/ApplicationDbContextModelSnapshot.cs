@@ -295,7 +295,6 @@ namespace FORMULARIOCENSI.Data.Migrations
                         .HasColumnName("torax");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("userid");
 

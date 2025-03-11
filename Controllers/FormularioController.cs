@@ -143,6 +143,8 @@ namespace FORMULARIOCENSI.Controllers
             if (ModelState.IsValid)
             {
                 prueba.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                Console.WriteLine($"UserId obtenido: {prueba.UserId}");
                 // Primera imagen
                 if (upload != null && upload.Count > 0)
                 {
