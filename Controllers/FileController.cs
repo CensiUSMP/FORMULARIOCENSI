@@ -97,7 +97,7 @@ namespace FORMULARIOCENSI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult EnviarPdf()
         {
             return View(RaspberryPis);
         }
@@ -111,26 +111,26 @@ namespace FORMULARIOCENSI.Controllers
                 if (!ValidateFile(pdfFile))
                 {
                     TempData["Error"] = "Invalid file";
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(EnviarPdf));
                 }
 
                 var device = GetRaspberryPiConfig(selectedDevice);
                 if (device.ip == null)
                 {
                     TempData["Error"] = "Invalid device selected";
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(EnviarPdf));
                 }
 
                 await SendFileToRaspberryPi(pdfFile, device.ip, device.port);
 
                 TempData["Success"] = $"File sent successfully to {selectedDevice}";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(EnviarPdf));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error processing file upload");
                 TempData["Error"] = "Internal server error";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(EnviarPdf));
             }
         }
 
@@ -144,18 +144,18 @@ namespace FORMULARIOCENSI.Controllers
                 if (device.ip == null)
                 {
                     TempData["Error"] = "Invalid device selected";
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(EnviarPdf));
                 }
 
                 await SendCloseSignal(device.ip, device.port);
                 TempData["Success"] = $"PDF closed successfully on {selectedDevice}";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(EnviarPdf));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error sending close signal");
                 TempData["Error"] = "Error closing PDF";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(EnviarPdf));
             }
         }
 
@@ -167,7 +167,7 @@ namespace FORMULARIOCENSI.Controllers
                 if (!ValidateFile(pdfFile))
                 {
                     TempData["Error"] = "Invalid file";
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(EnviarPdf));
                 }
 
                 var tasks = new List<Task>();
@@ -180,13 +180,13 @@ namespace FORMULARIOCENSI.Controllers
                 await Task.WhenAll(tasks);
 
                 TempData["Success"] = "File broadcasted to all devices successfully";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(EnviarPdf));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error broadcasting file");
                 TempData["Error"] = "Error broadcasting file to devices";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(EnviarPdf));
             }
         }
 
@@ -206,13 +206,13 @@ namespace FORMULARIOCENSI.Controllers
                 await Task.WhenAll(tasks);
 
                 TempData["Success"] = "PDFs closed on all devices";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(EnviarPdf));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error closing PDFs on all devices");
                 TempData["Error"] = "Error closing PDFs on all devices";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(EnviarPdf));
             }
         }
 
