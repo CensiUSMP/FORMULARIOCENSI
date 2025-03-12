@@ -340,6 +340,8 @@ namespace FORMULARIOCENSI.Controllers
             {
                 try
                 {
+                    prueba.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    Console.WriteLine($"UserId obtenido en Edit: {prueba.UserId}");
                     // Handle file upload
                     if (upload != null && upload.Count > 0)
                     {
@@ -373,6 +375,7 @@ namespace FORMULARIOCENSI.Controllers
 
                     // Update the main Prueba entity
                     _context.Update(prueba);
+                    _context.Entry(prueba).Property(p => p.UserId).IsModified = true;
                     await _context.SaveChangesAsync();
 
                     // Handle associated Estados
