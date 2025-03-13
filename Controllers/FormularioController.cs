@@ -317,6 +317,7 @@ namespace FORMULARIOCENSI.Controllers
                 .Include(p => p.Estados)
                 .Include(p => p.Estadosa)
                 .Include(p => p.Dialogo)
+                .Include(p => p.Status)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (prueba == null)
@@ -329,7 +330,7 @@ namespace FORMULARIOCENSI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Formulario prueba, List<IFormFile> upload, List<IFormFile> uploada)
+        public async Task<IActionResult> Edit(int id, Formulario prueba, List<IFormFile> upload, List<IFormFile> uploada, List<IFormFile> uploadArchivo, List<IFormFile> uploadc)
         {
             if (id != prueba.Id)
             {
@@ -340,9 +341,19 @@ namespace FORMULARIOCENSI.Controllers
             {
                 try
                 {
+                    var existingFormulario = await _context.DataFormulario
+                .AsNoTracking() // Para evitar conflictos de seguimiento de entidad
+                .FirstOrDefaultAsync(f => f.Id == id);
+
+                    if (existingFormulario == null)
+                    {
+                        return NotFound();
+                    }
                     prueba.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     Console.WriteLine($"UserId obtenido en Edit: {prueba.UserId}");
-                    // Handle file upload
+
+
+
                     if (upload != null && upload.Count > 0)
                     {
                         foreach (var up in upload)
@@ -357,6 +368,13 @@ namespace FORMULARIOCENSI.Controllers
                             }
                         }
                     }
+                    else
+                    {
+                        prueba.Imagen = existingFormulario.Imagen;
+                        prueba.ImagenName = existingFormulario.ImagenName;
+                    }
+
+
                     if (uploada != null && uploada.Count > 0)
                     {
                         foreach (var up in uploada)
@@ -371,12 +389,64 @@ namespace FORMULARIOCENSI.Controllers
                             }
                         }
                     }
+                    else
+                    {
+                        prueba.Imagena = existingFormulario.Imagena;
+                        prueba.ImagenNamea = existingFormulario.ImagenNamea;
+                    }
                     Console.WriteLine($"Imagen principal: {prueba.ImagenName}, Imagen secundaria: {prueba.ImagenNamea}");
 
                     // Update the main Prueba entity
                     _context.Update(prueba);
                     _context.Entry(prueba).Property(p => p.UserId).IsModified = true;
                     await _context.SaveChangesAsync();
+
+                    if (uploadArchivo != null && uploadArchivo.Count > 0)
+                    {
+                        var up = uploadArchivo.First();
+                        using (var str = up.OpenReadStream())
+                        {
+                            using (var br = new BinaryReader(str))
+                            {
+                                prueba.Archivo = br.ReadBytes((Int32)str.Length);
+                                prueba.ArchivoName = Path.GetFileName(up.FileName);
+
+                                // Extraer texto del PDF si es necesario
+                                if (Path.GetExtension(up.FileName).ToLower() == ".pdf")
+                                {
+                                    prueba.ArchivoTextoExtraido = ExtractTextFromPdf(prueba.Archivo);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Mantener el archivo anterior si no se sube uno nuevo
+                        prueba.Archivo = existingFormulario.Archivo;
+                        prueba.ArchivoName = existingFormulario.ArchivoName;
+                        prueba.ArchivoTextoExtraido = existingFormulario.ArchivoTextoExtraido;
+                    }
+
+                    if (uploadc != null && uploadc.Count > 0)
+                    {
+                        foreach (var up in uploadc)
+                        {
+                            using (var str = up.OpenReadStream())
+                            {
+                                using (var br = new BinaryReader(str))
+                                {
+                                    prueba.Imagenc = br.ReadBytes((Int32)str.Length);
+                                    prueba.ImagenNamec = Path.GetFileName(up.FileName);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        prueba.Imagenc = existingFormulario.Imagenc;
+                        prueba.ImagenNamec = existingFormulario.ImagenNamec;
+                    }
+
 
                     // Handle associated Estados
                     if (prueba.Estados != null)
@@ -476,6 +546,41 @@ namespace FORMULARIOCENSI.Controllers
                             {
                                 // Existing estado
                                 _context.Update(dialogo);
+                            }
+                        }
+
+                        await _context.SaveChangesAsync();
+                    }
+
+                    if (prueba.Status != null)
+                    {
+                        // Get existing estados for this Prueba
+                        var existingEstados = await _context.DataStatus
+                            .Where(e => e.FormularioId == prueba.Id)
+                            .ToListAsync();
+
+                        // Remove estados that are not in the current list
+                        var estadosToRemove = existingEstados
+                            .Where(existing => !prueba.Status.Any(current =>
+                                current.Id == existing.Id))
+                            .ToList();
+
+                        _context.DataStatus.RemoveRange(estadosToRemove);
+
+                        // Update or add new estados
+                        foreach (var status in prueba.Status)
+                        {
+                            status.FormularioId = prueba.Id;
+
+                            if (status.Id == 0)
+                            {
+                                // New estado
+                                _context.DataStatus.Add(status);
+                            }
+                            else
+                            {
+                                // Existing estado
+                                _context.Update(status);
                             }
                         }
 

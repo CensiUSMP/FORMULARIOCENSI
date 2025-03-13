@@ -4,12 +4,85 @@
     ViewData["Title"] = "Modificar";
 }
 
+<style>
+    .image-upload-container {
+        margin-bottom: 2rem;
+    }
+
+    .image-upload-title {
+        font-size: 1.2rem;
+        color: #2d3748;
+        margin-bottom: 1rem;
+    }
+
+    .upload-area {
+        border: 2px dashed #CBD5E0;
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        background-color: #F7FAFC;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .upload-area:hover {
+        border-color: #4299E1;
+        background-color: #EBF8FF;
+    }
+
+    .upload-button {
+        background-color: #4299E1;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        display: inline-block;
+    }
+
+    .upload-button:hover {
+        background-color: #3182CE;
+    }
+
+    #uploadc {
+        display: none;
+    }
+
+    #upload {
+        display: none;
+    }
+
+    #uploada {
+        display: none;
+    }
+
+    .preview-area {
+        margin-top: 1rem;
+        display: none;
+    }
+
+    .preview-image {
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 4px;
+        margin-top: 1rem;
+    }
+
+    .file-info {
+        margin-top: 0.5rem;
+        color: #4A5568;
+        font-size: 0.875rem;
+    }
+</style>
+
 <h1>MODIFICAR CASO</h1>
 
 <h4>Formulario</h4>
 <hr />
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <form asp-action="Edit" enctype="multipart/form-data" method="post">
             <input type="hidden" asp-for="Id" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -20,14 +93,14 @@
                 <span asp-validation-for="Titulo" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Sinopsis" class="control-label"></label>
-                <textarea asp-for="Sinopsis" class="form-control"></textarea>
+                <textarea asp-for="Sinopsis" class="form-control" cols="30" rows="10"></textarea>
                 <span asp-validation-for="Sinopsis" class="text-danger"></span>
             </div>
 
             <h3>Estados</h3>
-            <div id="estadosContainer">
+            <div id="estadosContainer" style="margin-bottom: 20px;">
                 @for (int i = 0; i < Model.Estados.Count; i++)
                 {
                     <div class="form-group">
@@ -35,45 +108,61 @@
                         <input type="hidden" name="Estados[@i].PruebaId" value="@Model.Estados[i].FormularioId" />
 
                         <label for="Estados_@(i)_Numero">Número</label>
-                        <input type="text" name="Estados[@i].Numero" class="form-control" 
-                               value="@Model.Estados[i].Numero"
-                               placeholder="Ingrese el número del estado" />
+                        <input type="text" name="Estados[@i].Numero" class="form-control" value="@Model.Estados[i].Numero"
+                            placeholder="Ingrese el número del estado" />
 
                         <label for="Estados_@(i)_Nombre">Nombre</label>
-                        <input type="text" name="Estados[@i].Nombre" class="form-control" 
-                               value="@Model.Estados[i].Nombre"
-                               placeholder="Ingrese el nombre del estado" />
+                        <input type="text" name="Estados[@i].Nombre" class="form-control" value="@Model.Estados[i].Nombre"
+                            placeholder="Ingrese el nombre del estado" />
 
                         <label for="Estados_@(i)_Descripcion">Descripción del Estado</label>
-                        <input type="text" name="Estados[@i].Descripcion" class="form-control" 
-                               value="@Model.Estados[i].Descripcion"
-                               placeholder="Ingrese la descripción del estado" />
+                        <input type="text" name="Estados[@i].Descripcion" class="form-control"
+                            value="@Model.Estados[i].Descripcion" placeholder="Ingrese la descripción del estado" />
                     </div>
                 }
             </div>
 
-            <div class="form-group">
-                <button type="button" class="btn btn-secondary" id="addEstadoButton">Agregar Estado</button>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-secondary" id="addEstadoButton">Agregar Estado<i
+                        class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
             </div>
 
-            <div>
-                <label type="button" id="custom-button">Cargar Imagen</label>
-                <input type="file" id="upload" name="upload" />
-                @if (!string.IsNullOrEmpty(Model.ImagenName))
-                {
-                    <p>Imagen actual: @Model.ImagenName</p>
-                }
+
+            <h3>Flujograma</h3>
+
+            <div class="upload-area" id="dropZoneFlujograma">
+                <p>Arrastra y suelta tu imagen aquí o</p>
+                <label class="upload-button" for="upload">
+                    Seleccionar archivo
+                </label>
+                <input type="file" id="upload" name="upload" accept="image/*" />
             </div>
-            <div class="form-group">
+
+            @if (!string.IsNullOrEmpty(Model.ImagenName))
+            {
+                <div class="current-image">
+                    <p>Imagen actual: @Model.ImagenName</p> <!-- Aquí se muestra el nombre -->
+                    <img id="previewImageFlujograma" src="@Url.Action("GetImage", new { id = Model.Id })" alt="Imagen" class="img-fluid mt-2"
+                        style="max-width: 200px;" />
+                </div>
+            }
+
+            <div class="preview-area" id="previewAreaFlujograma">
+                <div class="file-info" id="fileInfoFlujograma"></div>
+            </div>
+
+
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Autores" class="control-label"></label>
-                <textarea asp-for="Autores" class="form-control"></textarea>
+                <textarea asp-for="Autores" class="form-control" cols="30" rows="10"></textarea>
                 <span asp-validation-for="Autores" class="text-danger"></span>
             </div>
+
             <h4>Antecedentes del paciente</h4>
             <h3>Historia clínica del paciente</h3>
             <div class="form-group">
                 <label asp-for="Historial_medico" class="control-label"></label>
-                <textarea asp-for="Historial_medico" class="form-control"></textarea>
+                <textarea asp-for="Historial_medico" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="Historial_medico" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -86,22 +175,24 @@
                 <textarea asp-for="Medicamentos" class="form-control"></textarea>
                 <span asp-validation-for="Medicamentos" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Historia_familiar" class="control-label"></label>
                 <textarea asp-for="Historia_familiar" class="form-control"></textarea>
                 <span asp-validation-for="Historia_familiar" class="text-danger"></span>
             </div>
+
             <h3>Nota del ingreso</h3>
             <div class="form-group">
                 <label asp-for="Situacion" class="control-label"></label>
-                <textarea asp-for="Situacion" class="form-control"></textarea>
+                <textarea asp-for="Situacion" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="Situacion" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Nota_de_hospitalizacion" class="control-label"></label>
-                <textarea asp-for="Nota_de_hospitalizacion" class="form-control"></textarea>
+                <textarea asp-for="Nota_de_hospitalizacion" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="Nota_de_hospitalizacion" class="text-danger"></span>
             </div>
+
             <h3>Exámen físico</h3>
             <div class="form-group">
                 <label asp-for="Signos_vitales" class="control-label"></label>
@@ -134,24 +225,46 @@
                 <span asp-validation-for="Abdomen" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Neurologico" class="control-label"></label>
+                <textarea asp-for="Neurologico" class="form-control"></textarea>
+                <span asp-validation-for="Neurologico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Laboratorio" class="control-label"></label>
                 <textarea asp-for="Laboratorio" class="form-control"></textarea>
                 <span asp-validation-for="Laboratorio" class="text-danger"></span>
             </div>
-            <div>
-                <label type="button" id="custom-button">Cargar Imagen</label>
-                <input type="file" id="uploada" name="uploada" />
-                @if (!string.IsNullOrEmpty(Model.ImagenNamea))
-                {
-                    <p>Imagen actual: @Model.ImagenNamea</p>
-                }
+
+            <h3>Imágenes</h3>
+            <div class="upload-area" id="dropZoneImagesa">
+                <p>Arrastra y suelta tu imagen aquí o</p>
+                <label class="upload-button" for="uploada">
+                    Seleccionar archivo
+                </label>
+                <input type="file" id="uploada" name="uploada" accept="image/*" />
             </div>
+
+            @if (!string.IsNullOrEmpty(Model.ImagenNamea))
+            {
+                <div class="current-image">
+                    <p>Imagen actual: @Model.ImagenNamea</p> <!-- Aquí se muestra el nombre -->
+                    <img id="previewImageImagesa" src="@Url.Action("GetImagea", new { id = Model.Id })" alt="Imagena" class="img-fluid mt-2"
+                        style="max-width: 200px;" />
+                </div>
+            }
+
+            <div class="preview-area" id="previewAreaImagesa">
+                <div class="file-info" id="fileInfoImagesa"></div>
+            </div>
+
+
             <h3>Órdenes</h3>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Orden_inicial" class="control-label"></label>
-                <textarea asp-for="Orden_inicial" class="form-control"></textarea>
+                <textarea asp-for="Orden_inicial" class="form-control" cols="30" rows="30"></textarea>
                 <span asp-validation-for="Orden_inicial" class="text-danger"></span>
             </div>
+
             <h3>Preparación</h3>
             <h3>Objetivos del aprendizaje</h3>
             <div class="form-group">
@@ -179,20 +292,22 @@
                 <textarea asp-for="Aplicar" class="form-control"></textarea>
                 <span asp-validation-for="Aplicar" class="text-danger"></span>
             </div>
+
             <h3>Desempeño como medida del aprendizaje</h3>
             <h3>Medidas esenciales de rendimiento del escenario</h3>
             <div class="form-group">
                 <label asp-for="Medidas_esenciales" class="control-label"></label>
-                <textarea asp-for="Medidas_esenciales" class="form-control"></textarea>
+                <textarea asp-for="Medidas_esenciales" class="form-control" cols="30" rows="10"></textarea>
                 <span asp-validation-for="Medidas_esenciales" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 20px;">
                 <label asp-for="Baseline" class="control-label"></label>
-                <textarea asp-for="Baseline" class="form-control"></textarea>
+                <textarea asp-for="Baseline" class="form-control" cols="30" rows="5"></textarea>
                 <span asp-validation-for="Baseline" class="text-danger"></span>
             </div>
+
             <h3>Estados</h3>
-            <div id="estadosaContainer">
+            <div id="estadosaContainer" style="margin-bottom: 20px;">
                 @for (int i = 0; i < Model.Estadosa.Count; i++)
                 {
                     <div class="form-group">
@@ -200,21 +315,194 @@
                         <input type="hidden" name="Estadosa[@i].PruebaId" value="@Model.Estadosa[i].FormularioId" />
 
                         <label for="Estadosa_@(i)_Numero">Número</label>
-                        <input type="text" name="Estadosa[@i].Numero" class="form-control" 
-                               value="@Model.Estadosa[i].Numero"
-                               placeholder="Ingrese el número del estado" />
+                        <input type="text" name="Estadosa[@i].Numero" class="form-control" value="@Model.Estadosa[i].Numero"
+                            placeholder="Ingrese el número del estado" />
 
                         <label for="Estadosa_@(i)_Nombre">Nombre</label>
-                        <input type="text" name="Estadosa[@i].Nombre" class="form-control" 
-                               value="@Model.Estadosa[i].Nombre"
-                               placeholder="Ingrese el nombre del estado" />
+                        <input type="text" name="Estadosa[@i].Nombre" class="form-control" value="@Model.Estadosa[i].Nombre"
+                            placeholder="Ingrese el nombre del estado" />
 
                         <label for="Estadosa_@(i)_Descripcion">Descripción del Estado</label>
-                        <input type="text" name="Estadosa[@i].Descripcion" class="form-control" 
-                               value="@Model.Estadosa[i].Descripcion"
-                               placeholder="Ingrese la descripción del estado" />
+                        <input type="text" name="Estadosa[@i].Descripcion" class="form-control"
+                            value="@Model.Estadosa[i].Descripcion" placeholder="Ingrese la descripción del estado" />
                     </div>
                 }
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-secondary" id="addEstadoaButton">Agregar Estado<i
+                        class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Preguntas_de_preparacion" class="control-label"></label>
+                <textarea asp-for="Preguntas_de_preparacion" class="form-control" cols="30" rows="10"></textarea>
+                <span asp-validation-for="Preguntas_de_preparacion" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label asp-for="Equipos_de_suministro" class="control-label"></label>
+                <textarea asp-for="Equipos_de_suministro" class="form-control" cols="30" rows="10"></textarea>
+                <span asp-validation-for="Equipos_de_suministro" class="text-danger"></span>
+            </div>
+
+            <h3>Diálogo</h3>
+            <div id="dialogoContainer" style="margin-bottom: 20px;">
+                @for (int i = 0; i < Model.Dialogo.Count; i++)
+                {
+                    <div class="form-group">
+                        <input type="hidden" name="Dialogo[@i].Id" value="@Model.Dialogo[i].Id" />
+                        <input type="hidden" name="Dialogo[@i].PruebaId" value="@Model.Dialogo[i].FormularioId" />
+
+                        <label for="Dialogo_@(i)_Personaje">Personaje</label>
+                        <input type="text" name="Dialogo[@i].Personaje" class="form-control"
+                            value="@Model.Dialogo[i].Personaje" placeholder="Ingrese el nombre del personaje" />
+
+                        <label for="Dialogo_@(i)_Guion">Guión</label>
+                        <input type="text" name="Dialogo[@i].Guion" class="form-control" value="@Model.Dialogo[i].Guion"
+                            placeholder="Ingrese el guión del personaje" />
+
+                    </div>
+                }
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-secondary" id="addDialogoButton">Agregar Dialogo<i
+                        class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label asp-for="Confederado" class="control-label"></label>
+                <textarea asp-for="Confederado" class="form-control" cols="30" rows="5"></textarea>
+                <span asp-validation-for="Confederado" class="text-danger"></span>
+            </div>
+
+            <h3>Editar Archivo</h3>
+
+            <div>
+                <label type="button" id="custom-button-archivo">Cargar Nuevo Archivo</label>
+                <input type="file" id="uploadArchivo" name="uploadArchivo" />
+
+                @if (!string.IsNullOrEmpty(Model.ArchivoName))
+                {
+                    <p>Archivo Actual: @Model.ArchivoName</p>
+
+                    @if (Model.ArchivoName.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <iframe src="@Url.Action("GetArchivo", new { id = Model.Id })" width="100%" height="600px"
+                            frameborder="0"></iframe>
+                    }
+                    else if (Model.ArchivoName.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
+                    Model.ArchivoName.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+                    Model.ArchivoName.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <img src="@Url.Action("GetArchivo", new { id = Model.Id })" alt="Archivo Imagen"
+                            style="max-width: 100%;" />
+                    }
+                    else
+                    {
+                        <p>No se puede visualizar este tipo de archivo. <a
+                                href="@Url.Action("GetArchivo", new { id = Model.Id })" target="_blank">Descargar</a></p>
+                    }
+                }
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label>Texto extraído del PDF:</label>
+                <textarea asp-for="ArchivoTextoExtraido" class="form-control" readonly cols="30" rows="30"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Introduccion" class="control-label"></label>
+                <textarea asp-for="Introduccion" class="form-control"></textarea>
+                <span asp-validation-for="Introduccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emociones" class="control-label"></label>
+                <textarea asp-for="Emociones" class="form-control"></textarea>
+                <span asp-validation-for="Emociones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <textarea asp-for="Descripcion" class="form-control"></textarea>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Analisis" class="control-label"></label>
+                <textarea asp-for="Analisis" class="form-control"></textarea>
+                <span asp-validation-for="Analisis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sintesis" class="control-label"></label>
+                <textarea asp-for="Sintesis" class="form-control"></textarea>
+                <span asp-validation-for="Sintesis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreguntasDD" class="control-label"></label>
+                <textarea asp-for="PreguntasDD" class="form-control" cols="30" rows="30"></textarea>
+                <span asp-validation-for="PreguntasDD" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label asp-for="BaselineApren" class="control-label"></label>
+                <textarea asp-for="BaselineApren" class="form-control"></textarea>
+                <span asp-validation-for="BaselineApren" class="text-danger"></span>
+            </div>
+
+            <h3>Estados</h3>
+            <div id="statusContainer" style="margin-bottom: 20px;">
+                @for (int i = 0; i < Model.Status.Count; i++)
+                {
+                    <div class="form-group">
+                        <input type="hidden" name="Status[@i].Id" value="@Model.Status[i].Id" />
+                        <input type="hidden" name="Status[@i].PruebaId" value="@Model.Status[i].FormularioId" />
+
+                        <label for="Status_@(i)_Numero">Número</label>
+                        <input type="text" name="Status[@i].Numero" class="form-control" value="@Model.Status[i].Numero"
+                            placeholder="Ingrese el número del estado" />
+
+                        <label for="Status_@(i)_Nombre">Nombre</label>
+                        <input type="text" name="Status[@i].Nombre" class="form-control" value="@Model.Status[i].Nombre"
+                            placeholder="Ingrese el nombre del estado" />
+
+                        <label for="Status_@(i)_Descripcion">Descripción del Estado</label>
+                        <input type="text" name="Status[@i].Descripcion" class="form-control"
+                            value="@Model.Status[i].Descripcion" placeholder="Ingrese la descripción del estado" />
+                    </div>
+                }
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <button type="button" class="btn btn-secondary" id="addStatusButton">Agregar Estado<i
+                        class="fa-solid fa-plus" style="margin-left: 5px;"></i></button>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ReferenciasB" class="control-label"></label>
+                <textarea asp-for="ReferenciasB" class="form-control" cols="30" rows="10"></textarea>
+                <span asp-validation-for="ReferenciasB" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label asp-for="EscenariosP" class="control-label"></label>
+                <textarea asp-for="EscenariosP" class="form-control" cols="30" rows="5"></textarea>
+                <span asp-validation-for="EscenariosP" class="text-danger"></span>
+            </div>
+
+            <h3>Imágenes</h3>
+            <div class="upload-area" id="dropZoneImages">
+                <p>Arrastra y suelta tu imagen aquí o</p>
+                <label class="upload-button" for="uploadc">
+                    Seleccionar archivo
+                </label>
+                <input type="file" id="uploadc" name="uploadc" accept="image/*" />
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.ImagenNamec))
+            {
+                <div class="current-image">
+                    <p>Imagen actual: @Model.ImagenNamec</p> <!-- Aquí se muestra el nombre -->
+                    <img id="previewImageImages" src="@Url.Action("GetImagec", new { id = Model.Id })" alt="Imagenc" class="img-fluid mt-2"
+                        style="max-width: 200px;" />
+                </div>
+            }
+
+            <div class="preview-area" id="previewAreaImages">
+                <div class="file-info" id="fileInfoImages"></div>
             </div>
 
             <div class="form-group">
@@ -229,43 +517,292 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     <script>
         let estadoCount = @Model.Estados.Count;
 
-        document.getElementById("addEstadoButton").onclick = function() {
+        document.getElementById("addEstadoButton").onclick = function () {
             let newEstadoInput = document.createElement("div");
             newEstadoInput.classList.add("form-group");
             newEstadoInput.innerHTML = `
-                <label for="Estados_${estadoCount}_Numero">Número del Estado</label>
-                <input type="number" name="Estados[${estadoCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
+                                                    <label for="Estados_${estadoCount}_Numero">Número del Estado</label>
+                                                    <input type="number" name="Estados[${estadoCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
 
-                <label for="Estados_${estadoCount}_Nombre">Estado ${estadoCount + 1}: Nombre del Estado</label>
-                <input type="text" name="Estados[${estadoCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
+                                                    <label for="Estados_${estadoCount}_Nombre">Estado ${estadoCount + 1}: Nombre del Estado</label>
+                                                    <input type="text" name="Estados[${estadoCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
 
-                <label for="Estados_${estadoCount}_Descripcion">Descripción del Estado</label>
-                <input type="text" name="Estados[${estadocount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
-            `;
+                                                    <label for="Estados_${estadoCount}_Descripcion">Descripción del Estado</label>
+                                                    <input type="text" name="Estados[${estadoCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
+                                                `;
             document.getElementById("estadosContainer").appendChild(newEstadoInput);
             estadoCount++;
         };
         let estadoaCount = @Model.Estadosa.Count;
 
-        document.getElementById("addEstadoaButton").onclick = function() {
+        document.getElementById("addEstadoaButton").onclick = function () {
             let newEstadoInput = document.createElement("div");
             newEstadoInput.classList.add("form-group");
             newEstadoInput.innerHTML = `
-                <label for="Estadosa_${estadoaCount}_Numero">Número del Estado</label>
-                <input type="number" name="Estadosa[${estadoaCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
+                                                    <label for="Estadosa_${estadoaCount}_Numero">Número del Estado</label>
+                                                    <input type="number" name="Estadosa[${estadoaCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
 
-                <label for="Estadosa_${estadoaCount}_Nombre">Estado ${estadoaCount + 1}: Nombre del Estado</label>
-                <input type="text" name="Estadosa[${estadoaCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
+                                                    <label for="Estadosa_${estadoaCount}_Nombre">Estado ${estadoaCount + 1}: Nombre del Estado</label>
+                                                    <input type="text" name="Estadosa[${estadoaCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
 
-                <label for="Estadosa_${estadoaCount}_Descripcion">Descripción del Estado</label>
-                <input type="text" name="Estadosa[${estadoaCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
-            `;
+                                                    <label for="Estadosa_${estadoaCount}_Descripcion">Descripción del Estado</label>
+                                                    <input type="text" name="Estadosa[${estadoaCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
+                                                `;
             document.getElementById("estadosaContainer").appendChild(newEstadoInput);
             estadoaCount++;
         };
+        let dialogoCount = @Model.Dialogo.Count;
+
+        document.getElementById("addDialogoButton").onclick = function () {
+            let newDialogoInput = document.createElement("div");
+            newDialogoInput.classList.add("form-group");
+            newDialogoInput.innerHTML = `
+                                                <div class="col-md-3">
+                                                                        <label for="Dialogo_${dialogoCount}_Personaje">Personaje</label>
+                                                                        <input type="text" name="Dialogo[${dialogoCount}].Personaje" class="form-control" placeholder="Ingrese el nombre del personaje" />
+                                                                        </div>
+
+                                                                        <label for="Dialogo_${dialogoCount}_Guion">Guion</label>
+                                                                        <textarea type="text" name="Dialogo[${dialogoCount}].Guion" class="form-control" placeholder="Ingrese el guión del personaje" cols="30" rows="5" /></textarea>
+
+                                                                    `;
+            document.getElementById("dialogoContainer").appendChild(newDialogoInput);
+            dialogoCount++;
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let archivoCount = 1;
+
+            let addArchivoButton = document.getElementById("custom-button-archivo");
+            if (addArchivoButton) {  // Verifica que el botón existe
+                addArchivoButton.onclick = function () {
+                    let newArchivoInput = document.createElement("div");
+                    newArchivoInput.classList.add("form-group");
+                    newArchivoInput.innerHTML = `
+                                                        <label for="ArchivosAdicionales_${archivoCount}_Nombre">Nombre del Archivo</label>
+                                                        <input type="text" name="ArchivosAdicionales[${archivoCount}].Nombre" class="form-control" placeholder="Ingrese un nombre para el archivo" required />
+
+                                                        <label for="ArchivosAdicionales_${archivoCount}_Archivo">Archivo</label>
+                                                        <input type="file" name="ArchivosAdicionales[${archivoCount}].Archivo" class="form-control-file" accept="*/*" required />
+                                                    `;
+                    document.getElementById("archivosContainer").appendChild(newArchivoInput);
+                    archivoCount++;
+                };
+            } else {
+                console.log("El botón con ID 'custom-button-archivo' no se encuentra en el DOM.");
+            }
+        });
+
+        let statusCount = @Model.Status.Count;
+
+        document.getElementById("addStatusButton").onclick = function () {
+            let newEstadoInput = document.createElement("div");
+            newEstadoInput.classList.add("form-group");
+            newEstadoInput.innerHTML = `
+                                                    <label for="Status_${statusCount}_Numero">Número del Estado</label>
+                                                    <input type="number" name="Status[${statusCount}].Numero" class="form-control" placeholder="Ingrese el número del estado" />
+
+                                                    <label for="Status_${statusCount}_Nombre">Estado ${statusCount + 1}: Nombre del Estado</label>
+                                                    <input type="text" name="Status[${statusCount}].Nombre" class="form-control" placeholder="Ingrese el nombre del estado" />
+
+                                                    <label for="Status_${statusCount}_Descripcion">Descripción del Estado</label>
+                                                    <input type="text" name="Status[${statusCount}].Descripcion" class="form-control" placeholder="Ingrese la descripción del estado" />
+                                                `;
+            document.getElementById("statusContainer").appendChild(newEstadoInput);
+            statusCount++;
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropZone = document.getElementById('dropZoneImages');
+            const fileInput = document.getElementById('uploadc');
+            const previewArea = document.getElementById('previewAreaImages');
+            const previewImage = document.getElementById('previewImageImages');
+            const fileInfo = document.getElementById('fileInfoImages');
+
+            // Prevenir comportamientos por defecto
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Manejar archivos
+            fileInput.addEventListener('change', handleFileSelect);
+            dropZone.addEventListener('drop', handleDrop);
+
+            function handleFileSelect(e) {
+                const file = this.files[0];
+                if (file) displayFile(file);
+            }
+
+            function handleDrop(e) {
+                const file = e.dataTransfer.files[0];
+                if (file) {
+                    fileInput.files = e.dataTransfer.files;
+                    displayFile(file);
+                }
+            }
+
+            function displayFile(file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        previewImage.src = e.target.result;
+                        previewArea.style.display = 'block';
+                        fileInfo.textContent = `${file.name} (${formatFileSize(file.size)})`;
+                    }
+
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Por favor, selecciona solo archivos de imagen.');
+                    fileInput.value = '';
+                }
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropZone = document.getElementById('dropZoneFlujograma');
+            const fileInput = document.getElementById('upload');
+            const previewArea = document.getElementById('previewAreaFlujograma');
+            const previewImage = document.getElementById('previewImageFlujograma');
+            const fileInfo = document.getElementById('fileInfoFlujograma');
+
+            // Prevenir comportamientos por defecto
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Manejar archivos
+            fileInput.addEventListener('change', handleFileSelect);
+            dropZone.addEventListener('drop', handleDrop);
+
+            function handleFileSelect(e) {
+                const file = this.files[0];
+                if (file) displayFile(file);
+            }
+
+            function handleDrop(e) {
+                const file = e.dataTransfer.files[0];
+                if (file) {
+                    fileInput.files = e.dataTransfer.files;
+                    displayFile(file);
+                }
+            }
+
+            function displayFile(file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        previewImage.src = e.target.result;
+                        previewArea.style.display = 'block';
+                        fileInfo.textContent = `${file.name} (${formatFileSize(file.size)})`;
+                    }
+
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Por favor, selecciona solo archivos de imagen.');
+                    fileInput.value = '';
+                }
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropZone = document.getElementById('dropZoneImagesa');
+            const fileInput = document.getElementById('uploada');
+            const previewArea = document.getElementById('previewAreaImagesa');
+            const previewImage = document.getElementById('previewImageImagesa');
+            const fileInfo = document.getElementById('fileInfoImagesa');
+
+            // Mostrar la imagen guardada si existe
+            if (previewImage.dataset.src && previewImage.dataset.src.trim() !== '') {
+                previewImage.src = previewImage.dataset.src;
+                previewArea.style.display = 'block';
+            }
+
+            // Prevenir comportamientos por defecto
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Manejar archivos
+            fileInput.addEventListener('change', handleFileSelect);
+            dropZone.addEventListener('drop', handleDrop);
+
+            function handleFileSelect(e) {
+                const file = this.files[0];
+                if (file) displayFile(file);
+            }
+
+            function handleDrop(e) {
+                const file = e.dataTransfer.files[0];
+                if (file) {
+                    fileInput.files = e.dataTransfer.files;
+                    displayFile(file);
+                }
+            }
+
+            function displayFile(file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        previewImage.src = e.target.result;
+                        previewArea.style.display = 'block';
+                        fileInfo.textContent = `${file.name} (${formatFileSize(file.size)})`;
+                    };
+
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Por favor, selecciona solo archivos de imagen.');
+                    fileInput.value = '';
+                }
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+        });
+
     </script>
 }
