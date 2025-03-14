@@ -140,7 +140,8 @@ namespace FORMULARIOCENSI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Formulario prueba, List<IFormFile> upload, List<IFormFile> uploada, List<IFormFile> uploadArchivo, List<IFormFile> uploadc)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            try
             {
                 prueba.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -274,7 +275,13 @@ namespace FORMULARIOCENSI.Controllers
                 return RedirectToAction(nameof(Index2));
             }
 
-            return View(prueba);
+            catch (Exception ex)
+            {
+                // Registrar el error para diagnóstico
+                Console.WriteLine($"Error al guardar el formulario: {ex.Message}");
+                ModelState.AddModelError("", "Error al guardar el formulario: " + ex.Message);
+                return View(prueba);
+            }
         }
         private string ExtractTextFromPdf(byte[] pdfBytes)
         {
