@@ -14,7 +14,8 @@ using System.Text;
 
 namespace FORMULARIOCENSI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")] 
+
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;

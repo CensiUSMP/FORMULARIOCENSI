@@ -88,9 +88,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-    app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index2}/{id?}");
 
 // Rutas de Razor Pages para Identity
 app.MapRazorPages();

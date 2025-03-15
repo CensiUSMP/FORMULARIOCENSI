@@ -22,7 +22,7 @@ using System.Security.Claims;
 
 namespace FORMULARIOCENSI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User")] 
     public class FormularioController : Controller
     {
         private readonly ApplicationDbContext _context;
