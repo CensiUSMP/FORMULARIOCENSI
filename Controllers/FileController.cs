@@ -97,7 +97,13 @@ namespace FORMULARIOCENSI.Controllers
         }
 
         [HttpGet]
-        public IActionResult EnviarPdf()
+        public IActionResult Index()
+        {
+            return RedirectToAction(nameof(EnvioCaso));
+        }
+
+        [HttpGet]
+        public IActionResult EnvioCaso()
         {
             return View(RaspberryPis);
         }
@@ -111,26 +117,26 @@ namespace FORMULARIOCENSI.Controllers
                 if (!ValidateFile(pdfFile))
                 {
                     TempData["Error"] = "Invalid file";
-                    return RedirectToAction(nameof(EnviarPdf));
+                    return RedirectToAction(nameof(Index));
                 }
 
                 var device = GetRaspberryPiConfig(selectedDevice);
                 if (device.ip == null)
                 {
                     TempData["Error"] = "Invalid device selected";
-                    return RedirectToAction(nameof(EnviarPdf));
+                    return RedirectToAction(nameof(Index));
                 }
 
                 await SendFileToRaspberryPi(pdfFile, device.ip, device.port);
 
                 TempData["Success"] = $"File sent successfully to {selectedDevice}";
-                return RedirectToAction(nameof(EnviarPdf));
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error processing file upload");
                 TempData["Error"] = "Internal server error";
-                return RedirectToAction(nameof(EnviarPdf));
+                return RedirectToAction(nameof(Index));
             }
         }
 
@@ -144,18 +150,18 @@ namespace FORMULARIOCENSI.Controllers
                 if (device.ip == null)
                 {
                     TempData["Error"] = "Invalid device selected";
-                    return RedirectToAction(nameof(EnviarPdf));
+                    return RedirectToAction(nameof(EnvioCaso));
                 }
 
                 await SendCloseSignal(device.ip, device.port);
                 TempData["Success"] = $"PDF closed successfully on {selectedDevice}";
-                return RedirectToAction(nameof(EnviarPdf));
+                return RedirectToAction(nameof(EnvioCaso));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error sending close signal");
                 TempData["Error"] = "Error closing PDF";
-                return RedirectToAction(nameof(EnviarPdf));
+                return RedirectToAction(nameof(EnvioCaso));
             }
         }
 
@@ -167,7 +173,7 @@ namespace FORMULARIOCENSI.Controllers
                 if (!ValidateFile(pdfFile))
                 {
                     TempData["Error"] = "Invalid file";
-                    return RedirectToAction(nameof(EnviarPdf));
+                    return RedirectToAction(nameof(EnvioCaso));
                 }
 
                 var tasks = new List<Task>();
@@ -180,13 +186,13 @@ namespace FORMULARIOCENSI.Controllers
                 await Task.WhenAll(tasks);
 
                 TempData["Success"] = "File broadcasted to all devices successfully";
-                return RedirectToAction(nameof(EnviarPdf));
+                return RedirectToAction(nameof(EnvioCaso));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error broadcasting file");
                 TempData["Error"] = "Error broadcasting file to devices";
-                return RedirectToAction(nameof(EnviarPdf));
+                return RedirectToAction(nameof(EnvioCaso));
             }
         }
 
@@ -206,13 +212,13 @@ namespace FORMULARIOCENSI.Controllers
                 await Task.WhenAll(tasks);
 
                 TempData["Success"] = "PDFs closed on all devices";
-                return RedirectToAction(nameof(EnviarPdf));
+                return RedirectToAction(nameof(EnvioCaso));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error closing PDFs on all devices");
                 TempData["Error"] = "Error closing PDFs on all devices";
-                return RedirectToAction(nameof(EnviarPdf));
+                return RedirectToAction(nameof(EnvioCaso));
             }
         }
 
