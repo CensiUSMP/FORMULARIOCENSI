@@ -1,0 +1,85 @@
+@{
+    ViewData["Title"] = "Calendario";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Calendario de Eventos</h3>
+        </div>
+        <div class="card-body">
+            <div class="mb-3 text-end"></div>
+            <a class="btn btn-primary" asp-action="Create">Agregar nuevo evento</a>
+        </div>
+            <div id="calendar"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para mostrar detalles del evento -->
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventModalLabel">Detalles del Evento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="eventDetails">
+                <!-- Los detalles del evento se insertarán aquí -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Incluir FullCalendar -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/locales-all.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+                },
+                locale: 'es', // Configurar el idioma a español
+                navLinks: true,
+                selectable: true,
+                selectMirror: true,
+                dayMaxEvents: true, // Permitir "más" link cuando hay demasiados eventos
+                timeZone: 'local',
+                
+                // Cargar eventos desde el controlador
+                events: '@Url.Action("GetEvents", "Calendario")',
+                
+                // Manejar el clic en un evento
+                eventClick: function(info) {
+                    // Mostrar detalles del evento en el modal
+                    $('#eventModalLabel').text(info.event.title);
+                    $('#eventDetails').html(`
+                        <p><strong>Código:</strong> ${info.event.extendedProps.codigo}</p>
+                        <p><strong>Fecha:</strong> ${moment(info.event.start).format('DD/MM/YYYY')}</p>
+                        <p><strong>Horario:</strong> ${moment(info.event.start).format('HH:mm')} - ${moment(info.event.end).format('HH:mm')}</p>
+                        <p><strong>Detalles:</strong></p>
+                        <pre>${info.event.extendedProps.description}</pre>
+                    `);
+                    
+                    // Mostrar el modal
+                    var eventModal = new bootstrap.Modal(document.getElementById('eventModal'));
+                    eventModal.show();
+                },
+            });
+            
+            calendar.render();
+        });
+    </script>
+}

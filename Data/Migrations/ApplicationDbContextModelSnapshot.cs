@@ -22,6 +22,57 @@ namespace FORMULARIOCENSI.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("FORMULARIOCENSI.Models.Ambiente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NomAmb")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_ambiente");
+                });
+
+            modelBuilder.Entity("FORMULARIOCENSI.Models.AmbienteA", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AmbienteId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Codigo")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<TimeSpan>("HoraFin")
+                        .HasColumnType("interval");
+
+                    b.Property<TimeSpan>("HoraInicio")
+                        .HasColumnType("interval");
+
+                    b.Property<int>("PrincipalId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AmbienteId");
+
+                    b.HasIndex("PrincipalId");
+
+                    b.ToTable("t_ambientea");
+                });
+
             modelBuilder.Entity("FORMULARIOCENSI.Models.Dialogo", b =>
                 {
                     b.Property<int>("Id")
@@ -44,6 +95,22 @@ namespace FORMULARIOCENSI.Data.Migrations
                     b.HasIndex("FormularioId");
 
                     b.ToTable("t_dialogo");
+                });
+
+            modelBuilder.Entity("FORMULARIOCENSI.Models.Especifico", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NomEsp")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_especifico");
                 });
 
             modelBuilder.Entity("FORMULARIOCENSI.Models.Estados", b =>
@@ -303,6 +370,87 @@ namespace FORMULARIOCENSI.Data.Migrations
                     b.ToTable("t_formulario");
                 });
 
+            modelBuilder.Entity("FORMULARIOCENSI.Models.Global", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NomGlo")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_global");
+                });
+
+            modelBuilder.Entity("FORMULARIOCENSI.Models.Principal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EspecificoId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("GlobalId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RespAcademicoId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RespOperadorId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EspecificoId");
+
+                    b.HasIndex("GlobalId");
+
+                    b.HasIndex("RespAcademicoId");
+
+                    b.HasIndex("RespOperadorId");
+
+                    b.ToTable("t_principal");
+                });
+
+            modelBuilder.Entity("FORMULARIOCENSI.Models.RespAcademico", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NomAcad")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_respacademico");
+                });
+
+            modelBuilder.Entity("FORMULARIOCENSI.Models.RespOperador", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NomOpe")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_respoperador");
+                });
+
             modelBuilder.Entity("FORMULARIOCENSI.Models.Status", b =>
                 {
                     b.Property<int>("Id")
@@ -531,6 +679,25 @@ namespace FORMULARIOCENSI.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("FORMULARIOCENSI.Models.AmbienteA", b =>
+                {
+                    b.HasOne("FORMULARIOCENSI.Models.Ambiente", "Ambiente")
+                        .WithMany()
+                        .HasForeignKey("AmbienteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("FORMULARIOCENSI.Models.Principal", "Principal")
+                        .WithMany("AmbienteA")
+                        .HasForeignKey("PrincipalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ambiente");
+
+                    b.Navigation("Principal");
+                });
+
             modelBuilder.Entity("FORMULARIOCENSI.Models.Dialogo", b =>
                 {
                     b.HasOne("FORMULARIOCENSI.Models.Formulario", "Formulario")
@@ -562,6 +729,41 @@ namespace FORMULARIOCENSI.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Formulario");
+                });
+
+            modelBuilder.Entity("FORMULARIOCENSI.Models.Principal", b =>
+                {
+                    b.HasOne("FORMULARIOCENSI.Models.Especifico", "Especifico")
+                        .WithMany()
+                        .HasForeignKey("EspecificoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("FORMULARIOCENSI.Models.Global", "Global")
+                        .WithMany()
+                        .HasForeignKey("GlobalId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("FORMULARIOCENSI.Models.RespAcademico", "RespAcademico")
+                        .WithMany()
+                        .HasForeignKey("RespAcademicoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("FORMULARIOCENSI.Models.RespOperador", "RespOperador")
+                        .WithMany()
+                        .HasForeignKey("RespOperadorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Especifico");
+
+                    b.Navigation("Global");
+
+                    b.Navigation("RespAcademico");
+
+                    b.Navigation("RespOperador");
                 });
 
             modelBuilder.Entity("FORMULARIOCENSI.Models.Status", b =>
@@ -635,6 +837,11 @@ namespace FORMULARIOCENSI.Data.Migrations
                     b.Navigation("Estadosa");
 
                     b.Navigation("Status");
+                });
+
+            modelBuilder.Entity("FORMULARIOCENSI.Models.Principal", b =>
+                {
+                    b.Navigation("AmbienteA");
                 });
 #pragma warning restore 612, 618
         }

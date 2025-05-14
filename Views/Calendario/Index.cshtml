@@ -1,0 +1,54 @@
+@model IEnumerable<FORMULARIOCENSI.Models.Principal>
+
+@{
+    ViewData["Title"] = "Calendario";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Global</th>
+            <th>Específico</th>
+            <th>Resp. Académico</th>
+            <th>Resp. Operador</th>
+            <th>Ambientes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Global?.NomGlo</td>
+                <td>@item.Especifico?.NomEsp</td>
+                <td>@item.RespAcademico?.NomAcad</td>
+                <td>@item.RespOperador?.NomOpe</td>
+                <td>
+                    @if (item.AmbienteA != null && item.AmbienteA.Any())
+                    {
+                        <ul class="list-unstyled">
+                            @foreach (var amb in item.AmbienteA)
+                            {
+                                <li>
+                                    <strong>@amb.Ambiente?.NomAmb</strong> - 
+                                    @amb.Fecha.ToShortDateString(), 
+                                    @amb.HoraInicio.ToString(@"hh\:mm") - @amb.HoraFin.ToString(@"hh\:mm"),
+                                    @amb.Codigo
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Sin ambientes asignados</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
